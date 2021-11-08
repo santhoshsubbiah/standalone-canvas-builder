@@ -1,0 +1,9 @@
+/* Webfont: ZohoPuvi-Light */@font-face {
+    font-family: 'ZohoPuviLight';
+    src: url('Zoho Puvi Light.woff2') format('woff2'), /* Modern Browsers */
+         url('Zoho Puvi Light.otf') format('opentype'); /* Safari, Android, iOS */
+             font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+

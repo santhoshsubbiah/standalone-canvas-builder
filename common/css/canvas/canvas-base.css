@@ -1,0 +1,35 @@
+:root {
+    --crm-font-regular: ZohoPuvi, sans-serif;
+    --crm-font-regularlight: ZohoPuviLight, sans-serif;
+    --crm-font-bold: ZohoPuviBold, sans-serif;
+    --crm-font-bolditalic: ZohoPuviBoldItalic, sans-serif;
+    --crm-font-semibold: ZohoPuviBoldSemibold, sans-serif;
+    --crm-font-semibolditalic: ZohoPuviBoldSemiboldItalic, sans-serif;
+    --crm-font-black: ZohoPuviBoldBlack, sans-serif;
+    --crm-font-blackitalic: ZohoPuviBoldBlackItalic, sans-serif;
+    --crm-font-medium: ZohoPuviBoldMedium, sans-serif;
+    --crm-font-mediumitalic: ZohoPuviBoldMediumItalic, sans-serif;
+    --crm-font-light: ZohoPuviBoldLight, sans-serif;
+    --crm-font-lightitalic: ZohoPuviBoldLightItalic, sans-serif;
+    --crm-font-italic: ZohoPuviBoldItalic, sans-serif;
+    --crm-font-thin: ZohoPuviBoldThin, sans-serif;
+    --crm-font-thinitalic: ZohoPuviBoldThinItalic, sans-serif;
+    --crm-font-heavy: ZohoPuviBoldHeavy, sans-serif;
+    --crm-canvasfont-regular: ZohoPuvi;
+}
+
+html {
+    font-size: 1.4rem;
+    /* font-size: calc(.775rem - -.25 * (100vw - 20rem) / 100); */
+    font-size: 62.5%;
+}
+
+body {
+    font-family: var(--crm-font-regular);
+    color: #111;
+    background-color: #fff;
+    margin: 0px auto;
+    padding: 0px;
+    text-rendering: optimizeLegibility;
+    font-size: 1.5rem;
+}

@@ -1,0 +1,9 @@
+/* Webfont: ZohoPuvi-Extrablack */@font-face {
+    font-family: 'ZohoPuviExtBlk';
+    src: url('Zoho Puvi Extrablack.woff2') format('woff2'), /* Modern Browsers */
+         url('Zoho Puvi Extrablack.otf') format('opentype'); /* Safari, Android, iOS */
+             font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+

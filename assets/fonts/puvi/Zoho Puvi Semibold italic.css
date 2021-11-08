@@ -1,0 +1,9 @@
+/* Webfont: ZohoPuvi-SemiBoldItalic */@font-face {
+    font-family: 'ZohoPuviSemBd';
+    src: url('Zoho Puvi Semibold italic.woff2') format('woff2'), /* Modern Browsers */
+         url('Zoho Puvi Semibold italic.otf') format('opentype'); /* Safari, Android, iOS */
+             font-style: italic;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+

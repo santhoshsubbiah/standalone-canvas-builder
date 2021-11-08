@@ -1,0 +1,623 @@
+/* $Id$ */
+
+@font-face {
+  font-family: 'zcanvasicon';
+  src: url('../../../assets/zcanvas-icons/zcanvasicons.eot');
+  src: url('../../../assets/zcanvas-icons/zcanvasicons.eot') format('embedded-opentype'), url('../../../assets/zcanvas-icons/zcanvasicons.woff') format('woff'), url('../../../assets/zcanvas-icons/zcanvasicons.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'zcanvasicon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-Icon_plus:before {
+  content: "\e990";
+}
+
+.icon-Icon_Back:before {
+  content: "\e991";
+}
+
+.icon-Icon_Leftarrow1:before {
+  content: "\e992";
+}
+
+.icon-Icon_dot_three:before {
+  content: "\e993";
+}
+
+.icon-Icon_Rightarrow1:before {
+  content: "\e994";
+}
+
+.icon-Icon_Antenna:before {
+  content: "\e900";
+}
+
+.icon-Icon_Datacard:before {
+  content: "\e901";
+}
+
+.icon-Icon_Dish:before {
+  content: "\e902";
+}
+
+.icon-Icon_Fiber:before {
+  content: "\e903";
+}
+
+.icon-Icon_HDvoice:before {
+  content: "\e904";
+}
+
+.icon-Icon_Internationalroaming:before {
+  content: "\e905";
+}
+
+.icon-Icon_Navigation:before {
+  content: "\e906";
+}
+
+.icon-Icon_QRcode:before {
+  content: "\e907";
+}
+
+.icon-Icon_Router:before {
+  content: "\e908";
+}
+
+.icon-Icon_Scan:before {
+  content: "\e909";
+}
+
+.icon-Icon_Signalstrength:before {
+  content: "\e90a";
+}
+
+.icon-Icon_Simcard:before {
+  content: "\e90b";
+}
+
+.icon-Icon_Status:before {
+  content: "\e90c";
+}
+
+.icon-Icon_Surveillance:before {
+  content: "\e90d";
+}
+
+.icon-Icon_Unlimited:before {
+  content: "\e90e";
+}
+
+.icon-Icon_Barcode:before {
+  content: "\e90f";
+}
+
+.icon-Icon_Bill:before {
+  content: "\e910";
+}
+
+.icon-Icon_Calculator:before {
+  content: "\e911";
+}
+
+.icon-Icon_Cards:before {
+  content: "\e912";
+}
+
+.icon-Icon_Customersupport:before {
+  content: "\e913";
+}
+
+.icon-Icon_Delivery:before {
+  content: "\e914";
+}
+
+.icon-Icon_Dress:before {
+  content: "\e915";
+}
+
+.icon-Icon_Elevator:before {
+  content: "\e916";
+}
+
+.icon-Icon_Fragile:before {
+  content: "\e917";
+}
+
+.icon-Icon_Gift:before {
+  content: "\e918";
+}
+
+.icon-Icon_Money:before {
+  content: "\e919";
+}
+
+.icon-Icon_Offer:before {
+  content: "\e91a";
+}
+
+.icon-Icon_Piggybank:before {
+  content: "\e91b";
+}
+
+.icon-Icon_Shoppingbag:before {
+  content: "\e91c";
+}
+
+.icon-Icon_Tracking:before {
+  content: "\e91d";
+}
+
+.icon-Icon_Wallet:before {
+  content: "\e91e";
+}
+
+.icon-Icon_Area:before {
+  content: "\e91f";
+}
+
+.icon-Icon_Areaplot:before {
+  content: "\e920";
+}
+
+.icon-Icon_Bathtub:before {
+  content: "\e921";
+}
+
+.icon-Icon_Carrom:before {
+  content: "\e922";
+}
+
+.icon-Icon_Cupboard:before {
+  content: "\e923";
+}
+
+.icon-Icon_Dinningtable:before {
+  content: "\e924";
+}
+
+.icon-Icon_Doublebed:before {
+  content: "\e925";
+}
+
+.icon-Icon_Fan:before {
+  content: "\e926";
+}
+
+.icon-Icon_Fence:before {
+  content: "\e927";
+}
+
+.icon-Icon_Fireextinguisher:before {
+  content: "\e928";
+}
+
+.icon-Icon_Game:before {
+  content: "\e929";
+}
+
+.icon-Icon_Gym:before {
+  content: "\e92a";
+}
+
+.icon-Icon_Intercom:before {
+  content: "\e92b";
+}
+
+.icon-Icon_Lift:before {
+  content: "\e92c";
+}
+
+.icon-Icon_Modularkitchen:before {
+  content: "\e92d";
+}
+
+.icon-Icon_Park:before {
+  content: "\e92e";
+}
+
+.icon-Icon_Refrigerator:before {
+  content: "\e92f";
+}
+
+.icon-Icon_Singlebed:before {
+  content: "\e930";
+}
+
+.icon-Icon_Sofa:before {
+  content: "\e931";
+}
+
+.icon-Icon_Stove:before {
+  content: "\e932";
+}
+
+.icon-Icon_Swimmingpool:before {
+  content: "\e933";
+}
+
+.icon-Icon_Television:before {
+  content: "\e934";
+}
+
+.icon-Icon_Toilet:before {
+  content: "\e935";
+}
+
+.icon-Icon_Ambulance:before {
+  content: "\e936";
+}
+
+.icon-Icon_Ayurvedic:before {
+  content: "\e937";
+}
+
+.icon-Icon_Bandage:before {
+  content: "\e938";
+}
+
+.icon-Icon_Blood:before {
+  content: "\e939";
+}
+
+.icon-Icon_Dental:before {
+  content: "\e93a";
+}
+
+.icon-Icon_Eye:before {
+  content: "\e93b";
+}
+
+.icon-Icon_Female:before {
+  content: "\e93c";
+}
+
+.icon-Icon_Lifeline:before {
+  content: "\e93d";
+}
+
+.icon-Icon_Male:before {
+  content: "\e93e";
+}
+
+.icon-Icon_Medical:before {
+  content: "\e93f";
+}
+
+.icon-Icon_Medicalbox:before {
+  content: "\e940";
+}
+
+.icon-Icon_Medicine:before {
+  content: "\e941";
+}
+
+.icon-Icon_Ortho:before {
+  content: "\e942";
+}
+
+.icon-Icon_Patientbed:before {
+  content: "\e943";
+}
+
+.icon-Icon_Stethoscope:before {
+  content: "\e944";
+}
+
+.icon-Icon_Syringe:before {
+  content: "\e945";
+}
+
+.icon-Icon_Wheelchair:before {
+  content: "\e946";
+}
+
+.icon-Icon_Carparking:before {
+  content: "\e947";
+}
+
+.icon-Icon_Clean:before {
+  content: "\e948";
+}
+
+.icon-Icon_Cofeemaker:before {
+  content: "\e949";
+}
+
+.icon-Icon_Curtains:before {
+  content: "\e94a";
+}
+
+.icon-Icon_Drinks:before {
+  content: "\e94b";
+}
+
+.icon-Icon_Food:before {
+  content: "\e94c";
+}
+
+.icon-Icon_Geyser:before {
+  content: "\e94d";
+}
+
+.icon-Icon_Hairdryer:before {
+  content: "\e94e";
+}
+
+.icon-Icon_Holiday:before {
+  content: "\e94f";
+}
+
+.icon-Icon_Ironbox:before {
+  content: "\e950";
+}
+
+.icon-Icon_Nosmoking:before {
+  content: "\e951";
+}
+
+.icon-Icon_Roomservice:before {
+  content: "\e952";
+}
+
+.icon-Icon_Shower:before {
+  content: "\e953";
+}
+
+.icon-Icon_Toiletries:before {
+  content: "\e954";
+}
+
+.icon-Icon_Travelbag:before {
+  content: "\e955";
+}
+
+.icon-Icon_Washingmachine:before {
+  content: "\e956";
+}
+
+.icon-Icon_Account:before {
+  content: "\e957";
+}
+
+.icon-Icon_Attachment:before {
+  content: "\e958";
+}
+
+.icon-Icon_Bookmark:before {
+  content: "\e959";
+}
+
+.icon-Icon_Calender:before {
+  content: "\e95a";
+}
+
+.icon-Icon_Camera:before {
+  content: "\e95b";
+}
+
+.icon-Icon_Card:before {
+  content: "\e95c";
+}
+
+.icon-Icon_Cart:before {
+  content: "\e95d";
+}
+
+.icon-Icon_Caution:before {
+  content: "\e95e";
+}
+
+.icon-Icon_Clock:before {
+  content: "\e95f";
+}
+
+.icon-Icon_Coffeecup:before {
+  content: "\e960";
+}
+
+.icon-Icon_Dollar:before {
+  content: "\e961";
+}
+
+.icon-Icon_Downarrow:before {
+  content: "\e962";
+}
+
+.icon-Icon_Euro:before {
+  content: "\e963";
+}
+
+.icon-Icon_Facebook:before {
+  content: "\e964";
+}
+
+.icon-Icon_Favourite:before {
+  content: "\e965";
+}
+
+.icon-Icon_Flag:before {
+  content: "\e966";
+}
+
+.icon-Icon_Flight:before {
+  content: "\e967";
+}
+
+.icon-Icon_Folder:before {
+  content: "\e968";
+}
+
+.icon-Icon_Gallery:before {
+  content: "\e969";
+}
+
+.icon-Icon_Home:before {
+  content: "\e96a";
+}
+
+.icon-Icon_Info:before {
+  content: "\e96b";
+}
+
+.icon-Icon_Leftarrow:before {
+  content: "\e96c";
+}
+
+.icon-Icon_Linkedin:before {
+  content: "\e96d";
+}
+
+.icon-Icon_Location:before {
+  content: "\e96e";
+}
+
+.icon-Icon_Mail:before {
+  content: "\e96f";
+}
+
+.icon-Icon_Map:before {
+  content: "\e970";
+}
+
+.icon-Icon_Mention:before {
+  content: "\e971";
+}
+
+.icon-Icon_Mic:before {
+  content: "\e972";
+}
+
+.icon-Icon_Mobile:before {
+  content: "\e973";
+}
+
+.icon-Icon_Notification:before {
+  content: "\e974";
+}
+
+.icon-Icon_Phone:before {
+  content: "\e975";
+}
+
+.icon-Icon_Pound:before {
+  content: "\e976";
+}
+
+.icon-Icon_Printer:before {
+  content: "\e977";
+}
+
+.icon-Icon_Profile:before {
+  content: "\e978";
+}
+
+.icon-Icon_Rightarrow:before {
+  content: "\e979";
+}
+
+.icon-Icon_Search:before {
+  content: "\e97a";
+}
+
+.icon-Icon_Star:before {
+  content: "\e97b";
+}
+
+.icon-Icon_Tag:before {
+  content: "\e97c";
+}
+
+.icon-Icon_Ticket:before {
+  content: "\e97d";
+}
+
+.icon-Icon_Twitter:before {
+  content: "\e97e";
+}
+
+.icon-Icon_Uparrow:before {
+  content: "\e97f";
+}
+
+.icon-Icon_Upload:before {
+  content: "\e980";
+}
+
+.icon-Icon_Complete:before {
+  content: "\e995";
+}
+
+.icon-Icon_Agricultureloan:before {
+  content: "\e981";
+}
+
+.icon-Icon_ATMswipe:before {
+  content: "\e982";
+}
+
+.icon-Icon_Bank:before {
+  content: "\e983";
+}
+
+.icon-Icon_Banklocker:before {
+  content: "\e984";
+}
+
+.icon-Icon_Bond:before {
+  content: "\e985";
+}
+
+.icon-Icon_Customerprofile:before {
+  content: "\e986";
+}
+
+.icon-Icon_Fastag:before {
+  content: "\e987";
+}
+
+.icon-Icon_Goldloan:before {
+  content: "\e988";
+}
+
+.icon-Icon_Insurance:before {
+  content: "\e989";
+}
+
+.icon-Icon_Investment:before {
+  content: "\e98a";
+}
+
+.icon-Icon_Loan:before {
+  content: "\e98b";
+}
+
+.icon-Icon_Netbanking:before {
+  content: "\e98c";
+}
+
+.icon-Icon_Premiumservice:before {
+  content: "\e98d";
+}
+
+.icon-Icon_Reward:before {
+  content: "\e98e";
+}
+
+.icon-Icon_Secure:before {
+  content: "\e98f";
+}

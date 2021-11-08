@@ -1,0 +1,9 @@
+/* Webfont: ZohoPuvi-RegularItalic */@font-face {
+    font-family: 'ZohoPuvi';
+    src: url('Zoho Puvi Regular italic.woff2') format('woff2'), /* Modern Browsers */
+         url('Zoho Puvi Regular italic.otf') format('opentype'); /* Safari, Android, iOS */
+             font-style: italic;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+

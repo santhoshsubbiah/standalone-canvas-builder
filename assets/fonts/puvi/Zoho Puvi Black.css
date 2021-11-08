@@ -1,0 +1,9 @@
+/* Webfont: ZohoPuvi-Black */@font-face {
+    font-family: 'ZohoPuviBlack';
+    src: url('Zoho Puvi Black.woff2') format('woff2'), /* Modern Browsers */
+         url('Zoho Puvi Black.otf') format('opentype'); /* Safari, Android, iOS */
+             font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+

@@ -1,0 +1,4094 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+.canvas-addfield-pop lyte-modal-content {
+    padding: 10px;
+    background-color: #181a24;
+    color: #fff;
+}
+
+.canvas-addfield-pop .lyteModal {
+    border: 0;
+}
+
+.canvas-addfield-loaddata {
+    display: flex;
+}
+
+.canvas-addfield-loaddata button {
+    background: transparent;
+    color: #FFF;
+    border-color: #606781;
+    margin-left: 8px;
+    border-radius: 5px;
+    ;
+}
+
+/*  */
+
+.canvasicon {
+    background: url(../../assets/images/crm-canvas.svg) no-repeat;
+}
+
+.canvas-container {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 16;
+    overflow: hidden;
+    background: #FFFFFF;
+}
+
+.canvas-top-container {
+    width: 100%;
+    height: 50px;
+    background-color: #282c3c;
+    color: #cdcdd2;
+    display: flex;
+}
+
+.toolleftborder {
+    border-right: 1px solid #e2e2e2;
+}
+
+.canvas-tap-inner span {
+    padding: 7px 10px;
+}
+
+.canvas-tap-inner .canvas-active-tap {
+    border-bottom: 2px solid #35bdff;
+}
+
+.canvas-tools-container, .canvas-gallery-container, .canvas-criteria-container {
+    width: 250px;
+    height: 100%;
+    background: #292C3C;
+    transition: 100ms all ease-in-out;
+    padding-bottom: 60px;
+    border-top: 0;
+    display: none;
+}
+
+.canvas-tools-container.canvas-selected-sidebar {
+    display: flex !important;
+    flex-direction: column;
+}
+
+.canvas_loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+}
+
+.canvas_loading_div {
+    text-align: center;
+    background: #42a2eb;
+    width: 100px;
+    left: 50%;
+    position: absolute;
+    border-radius: 0px 0px 15px 15px;
+    color: #FFF;
+    padding: 10px;
+    top: 50px;
+}
+
+.canvas-uitools .canvas-tool {
+    padding: 0;
+    border: 0;
+    display: inline-block;
+    height: 32px;
+    border-image: linear-gradient(to bottom, transparent 20%, #CCC 20%, #CCC 80%, transparent 80%);
+    border-image-slice: 1;
+    border-right-width: 1px;
+    border-right-style: solid;
+}
+
+.canvas-editor-container {
+    width: 100%;
+    height: calc(100% - 78px);
+    font-size: 15px;
+    overflow: hidden;
+    display: flex;
+    /* This font family is important to prefill the non font values in editor */
+    font-family: var(--crm-canvasfont-regular);
+}
+
+#sidebarnomatch {
+    color: #FFFF;
+    padding: 30px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.zcnomatchel {
+    color: #FFFF;
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+    display: none;
+    cursor: default;
+}
+
+.zcnomatchrule {
+    color: #FFFF;
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+    cursor: default;
+}
+
+.zcaddcustomtab {
+    margin-top: 5px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.canvas-menu-container, .canvas-insert-container {
+    width: 250px;
+    height: 100%;
+    background: #292c3c;
+    overflow: hidden;
+    transition: 100ms all ease-in-out;
+    padding-bottom: 60px;
+    border-top: 0;
+    display: none;
+    box-sizing: border-box;
+}
+
+.canvas-field-menu-container {
+    position: relative;
+    height: 100%;
+    padding: 0px 15px;
+    box-sizing: border-box;
+    overflow: scroll;
+}
+
+.canvas_popup_headerinput {
+    background: #1f212a;
+}
+
+.canvas_field_search {
+    height: 35px;
+    border: 1px solid #494f63 !important;
+    margin: 20px auto 10px;
+    background: #242836;
+    color: #3f5265;
+    border-radius: 4px;
+    width: 220px;
+}
+
+.canvas_popup_search {
+    border: 0px !important;
+    margin: 0px;
+}
+
+.canvas_popup_search_container {
+    display: flex;
+    align-items: center;
+}
+
+.canvas_popup_setup_container {
+    padding: 10px;
+}
+
+.canvas-popsetting-icon {
+    border: 1px solid #556473;
+    border-radius: 4px;
+    padding: 3px 12px 7px;
+}
+
+.canvas_field_search input {
+    border: 0;
+    outline: none !important;
+    background-color: transparent;
+    width: calc(100% - 30px);
+    height: 100%;
+    font-size: 14px;
+    color: #d9e1e9;
+    text-indent: 10px;
+}
+
+.canvas_search_icon {
+    float: right;
+    width: 30px;
+    border-radius: 0px 4px 4px 0px;
+    left: 1px;
+}
+
+.zc_searchIcon {
+    background: url(../../assets/images/svgicons.svg) no-repeat -75px -567px;
+    width: 19px;
+    height: 19px;
+    display: inline-block;
+    top: 7px;
+    left: 7px;
+    transform: scale(0.7);
+}
+
+.canvas-sidebar {
+    width: 70px;
+    height: 100%;
+    background: #282c3c;
+    margin: 0px;
+    z-index: 1;
+    border-right: 1px solid #3a3d4c;
+    position: relative;
+}
+
+.canvas-sidebar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    cursor: pointer;
+    border-left: 2px solid transparent;
+    opacity: 0.8;
+}
+
+.zcgallerysidebar.zc-selected-sidebar {
+    border-left: 2px solid #fecf32;
+    opacity: 1;
+}
+
+.zcfieldsidebar.zc-selected-sidebar {
+    border-left: 2px solid #62dee7;
+    opacity: 1;
+}
+
+.zclayoutsidebar.zc-selected-sidebar {
+    border-left: 2px solid #de4f96;
+    opacity: 1;
+}
+
+.zcstylesideebar.zc-selected-sidebar {
+    border-left: 2px solid #65c065;
+    opacity: 1;
+}
+
+.canvas-sidebar-item-name {
+    color: #FFFFFF;
+    font-size: 12px;
+    display: inline-block;
+    padding-top: 5px;
+    text-align: center;
+}
+
+.zc_field_icon {
+    background-position: -4px -5px;
+    width: 29px;
+    height: 23px;
+    display: inline-block;
+}
+
+.zc-selected-sidebar .zc_field_icon {
+    background-position: -39px -5px;
+}
+
+.zc_tools_icon {
+    background-position: -76px -203px;
+    width: 21px;
+    display: inline-block;
+    height: 23px;
+}
+
+.zc-selected-sidebar .zc_tools_icon {
+    background-position: -116px -203px;
+}
+
+.zc_layout_icon {
+    background-position: -80px -6px;
+    width: 21px;
+    height: 21px;
+    display: inline-block;
+}
+
+.zc_gallery_icon {
+    background-position: -8px -203px;
+    width: 22px;
+    height: 23px;
+    display: inline-block;
+}
+
+.zc-selected-sidebar .zc_gallery_icon {
+    background-position: -38px -203px;
+}
+
+.zc-selected-sidebar .zc_layout_icon {
+    background-position: -110px -6px;
+}
+
+.zc_back_icon {
+    background-position: -30px -121px;
+    width: 15px;
+    height: 12px;
+    display: inline-block;
+}
+
+.zc-hidesidebar-icon {
+    background-position: -410px -212px;
+    width: 11px;
+    height: 12px;
+    display: inline-block;
+}
+
+.canvas-sidebar-bottom {
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+.canvas-sidebar-btm-icon {
+    opacity: 0.6;
+}
+
+.canvas-sidebar-hide-icon:hover .canvas-sidebar-btm-icon {
+    opacity: 1;
+}
+
+.canvas-sidebar-hide-icon, .canvas-sidebar-more {
+    cursor: pointer;
+}
+
+.canvas-tool-typename {
+    height: 50px;
+    background: #232635;
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+.canvas-tool-typetext, .canvas-tool-header {
+    color: #DFEBFA;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-left: 16px;
+}
+
+.canvas-helper-text {
+    color: #9799A5;
+    margin-left: 4px;
+    font-size: 12px;
+}
+
+.zctool-nohelper .canvas-tool-helper {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.canvas-page-container {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    /*   padding: 20px 20px 0px; */
+    position: relative;
+    transition: 100ms all ease-in-out;
+    flex: 1;
+    background: #FFFFFF;
+}
+
+.zcanvas-editor-outer {
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(233, 235, 238);
+    outline: 2px dashed transparent;
+    min-height: 100%;
+    margin: 0px auto;
+    position: relative;
+}
+
+.canvas-text-tools {
+    width: 250px;
+    padding: 10px;
+    border-bottom: 1px solid #383C50;
+    box-sizing: border-box;
+}
+
+.canvas-tool-box {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+
+.canvas-tool-container {
+    padding: 10px;
+    border-bottom: 1px solid #383C50;
+    box-sizing: border-box;
+}
+
+.canvas-tool-name {
+    color: #6D7893;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.zc_measure {
+    vertical-align: baseline;
+    color: #DBE3EB;
+    font-size: 10px;
+}
+
+.zc_checkbox {
+    background: url(../../assets/images/crm-canvas.svg) no-repeat;
+    background-position: -290px -216px;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+}
+
+.zc_checkbox:hover {
+    background-position: -311px -198px;
+}
+
+.zcanvas-tool-toggle-selected .zc_checkbox {
+    background-position: -311px -216px;
+}
+
+.zcanvas-tool-toggle-selected .zc_checkbox.zc_line_style {
+    background-position: -290px -198px;
+}
+
+.canvas-text-tools>div, .zc-bg-fill {
+    display: flex;
+    justify-content: space-between;
+}
+
+.canvascolorcontainer {
+    border-radius: 3px;
+    width: 32px;
+    position: relative;
+}
+
+.zcrm-canvas-tools-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* pR for Canvas*/
+
+.zcanvas-tools-slider, .radiusicon .zcanvas-tools-input {
+    position: relative;
+}
+
+/*dB for Canvas*/
+
+.zcrm-canvas-tools-list .toolaction, .canvas-toolset, #boxshadowtool .advancemode .advancedtool, .zcanvas.ui-resizable:not(.ui-resizable-disabled)>.ui-resizable-handle {
+    display: block;
+}
+
+/* dBImp for Canvas */
+
+.zcbdrbox .zcanvas-selected-element~.ui-resizable-handle, .zcbdrbox.zcanvas-selected-element .ui-resizable-handle, .canvas-selected-sidebar {
+    display: block !important;
+}
+
+/* dIB for Canvas */
+
+.zcanvas-on-menu .zcanvas-value-container:only-child, .zc-sectionsizetool #sectionwidthtool, .zc-sectionsizetool #sectionheighttool {
+    display: inline-block;
+}
+
+/* p0 for Canvas */
+
+#zctabbuttontype li, .zc-sectionsizetool .zcanvas-tools-dropdown {
+    padding: 0px;
+}
+
+/* nowrap for Canvas*/
+
+.zcanvas-value-container button, .zccbutton.zcanvas-field {
+    white-space: nowrap;
+}
+
+/* p010 for Canvas */
+
+.canvas-tool, .zc-context-settings {
+    padding: 0px 10px;
+}
+
+/* cP for Canvas */
+
+.zc-non-draggable, #bgadvancedtool {
+    cursor: pointer;
+}
+
+/* p5p0 for canvas */
+
+#boxshadowtool #zcanvasboxshadowinput>div, .zccolorpickerwrap .lyteInputBox .lyteField {
+    padding: 5px 0px;
+}
+
+/* o1 for Canvas */
+
+.canvas-sidebar-item:hover, .zcanvas-editor:hover .zc-add-canvas, .zcanvas-relatedlist-container .zcanvas-editor:hover .zcanvas-editor-resize::before, .zcanvas-editor-outer .zcanvas-value-container .lyteNavigator .lyteDisabled, #depthforward:hover .zc-depth-icon, #depthbackward:hover .zc-depth-icon-back {
+    opacity: 1;
+}
+
+.zcrm-canvas-tools-list .toolaction .tool-selected-value {
+    padding: 0px 4px;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.zcrm-canvas-tools-list .toolaction .tool-open-icon {
+    padding-left: 4px;
+    border-left: 1px solid #dfdfdf;
+    display: none;
+}
+
+.zcanvas-tools-dropdown {
+    border-radius: 4px;
+    height: 25px;
+    font-size: 13px;
+    color: #BABABA;
+    background: #323648;
+    border: 1px solid #393F5D;
+    padding: 0px 7px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.zcanvas-tools-dropdown.zcanvas-opened-dropdown {
+    background: #1a1c29;
+    color: #FFFFFF;
+}
+
+.zcanvas-tools-dropdown-values {
+    position: fixed;
+    z-index: 1000;
+    display: none;
+    line-height: 1;
+}
+
+.zcanvas-tools-dropdown-values .dropdown-container-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: #303448;
+    color: #fff;
+    position: absolute;
+    box-shadow: 4px 4px 12px 3px rgba(0, 0, 0, 0.25);
+    border: 1px solid #3a3f5c;
+    border-radius: 4px;
+    max-height: 340px;
+    overflow: auto;
+}
+
+#sizeselect .dropdown-container-list li, #defaulttabsizetool .dropdown-container-list li, .sizeselection .dropdown-container-list li {
+    font-size: 14px !important;
+    width: 45px;
+    text-align: center;
+    padding: 8px;
+}
+
+#weightselect .tool-selected-value, .weightselect .tool-selected-value {
+    min-width: 90px;
+    display: block;
+}
+
+#weightselect .dropdown-container-list li, .weightselect .dropdown-container-list li {
+    font-size: 14px !important;
+    padding: 8px 12px !important;
+}
+
+.zcanvas-tools-dropdown-values .dropdown-container-list li {
+    background: #303448;
+    color: #fff;
+    position: relative;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: 4px;
+}
+
+.zcanvas-tools-list-select {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.zcanvas-tools-list-select li {
+    display: inline-block;
+    border-radius: 4px;
+    margin: 2px;
+    padding: 4px;
+    width: 30px;
+    height: 24px;
+    text-align: center;
+    background: transparent;
+    border: 1px solid transparent;
+}
+
+.toggle-tool {
+    display: inline-block;
+    padding: 5px 8px;
+    border: 1px solid #dfdfdf;
+    border-radius: 4px;
+    margin: 2px;
+}
+
+.zcanvas-multirow-dropdown {
+    width: 155px;
+    padding: 5px !important;
+    background: #FFFFFF !important;
+    border-radius: 5px !important;
+}
+
+.zcanvas-multirow-dropdown li {
+    float: left;
+    margin-left: 5px;
+    border: 1px solid #aaaaaa;
+    width: 30px;
+    height: 30px;
+    margin-top: 5px;
+    text-align: center;
+    background: #FFF !important;
+    color: #000 !important;
+}
+
+.zcanvastoolinput {
+    color: #DBE2EB;
+    border: none;
+    text-align: left;
+    width: 25px;
+    border-radius: 3px;
+    height: 26px;
+    font-size: 14px;
+    background: transparent;
+    overflow: hidden;
+}
+
+.zcanvas-tool-disable {
+    pointer-events: none;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.zcanvastoolinput::-webkit-inner-spin-button, .zcanvastoolinput::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Chrome, Safari, Edge, Opera */
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+input.zcanvastoolinput[type=number], input.zcselectinput[type=number] {
+    -moz-appearance: textfield;
+}
+
+input.zcanvastoolinput:invalid {
+    box-shadow: none;
+}
+
+.zcanvas-tool-input-param {
+    font-size: 10px;
+    color: #fff;
+}
+
+.zcanvasuppercase {
+    text-transform: uppercase;
+}
+
+.zcanvasitalic {
+    font-style: italic;
+}
+
+.zcanvaslinethrough, .zcanvaslinethrough span:not(.zcs-dib), .zcanvaslinethrough.zcanvas-value-container *, .zcanvaslinethrough .zcanvas-value-container *, .divClass .zcanvaslinethrough .canvasCruxComponent, .divClass .zcanvaslinethrough [zc-icon] {
+    text-decoration: line-through;
+}
+
+.zcanvas-active-selection-item {
+    background: red;
+}
+
+.zcanvas-border-icon {
+    background: url(../../assets/images/crm-canvas.svg) no-repeat;
+    background-position: -265px -6px;
+    width: 19px;
+    height: 19px;
+    display: inline-block;
+}
+
+.zcanvas-opened-dropdown .zcanvas-border-icon {
+    background-position: -240px -6px;
+}
+
+.zcanvas-margin-icon {
+    background: url(../../assets/images/crm-canvas.svg) no-repeat;
+    background-position: -291px -6px;
+    width: 19px;
+    height: 19px;
+    display: inline-block;
+}
+
+.zcanvas-opened-dropdown .zcanvas-margin-icon {
+    background-position: -316px -6px;
+}
+
+.zcboxshadowicon {
+    background: url(../../assets/images/crm-canvas.svg) no-repeat;
+    background-position: -340px -7px;
+    width: 20px;
+    height: 19px;
+    display: inline-block;
+}
+
+.zcanvas-opened-dropdown .zcboxshadowicon {
+    background-position: -366px -7px;
+}
+
+.zcradiusicon {
+    background: url(../../assets/images/crm-canvas.svg) no-repeat;
+    background-position: -394px -6px;
+    width: 19px;
+    height: 19px;
+    display: inline-block;
+}
+
+.zcanvas-opened-dropdown .zcradiusicon {
+    background-position: -420px -6px;
+    width: 20px;
+}
+
+.zcdividericon {
+    background: url(../../assets/images/crm-canvas.svg) no-repeat;
+    background-position: -61px -51px;
+    width: 19px;
+    height: 19px;
+    display: inline-block;
+}
+
+.zcrm-canvas-tools-list .tool25 {
+    width: 25%;
+    padding: 0px;
+}
+
+.zcrm-canvas-tools-list .tool75 {
+    width: 75%;
+    padding-left: 10px;
+}
+
+.zcrm-canvas-tools-list .tool50, .zcrm-canvas-tools-list .tool60 {
+    width: 50%;
+    padding: 10px 0px 0px;
+    display: flex;
+    align-items: center;
+}
+
+.zcrm-canvas-tools-list .tool60 {
+    width: 60%;
+}
+
+.zcrm-canvas-tools-list .tool100 {
+    width: 100%;
+    padding: 10px 0px 0px;
+    display: flex;
+    align-items: center;
+}
+
+.zcrm-canvas-tools-list .toollabel {
+    padding-right: 10px;
+    font-size: 14px;
+    display: block;
+    min-width: 55px;
+}
+
+.zcrm-canvas-tools-container {
+    max-width: 300px;
+}
+
+input[type="checkbox"].zconOffcb:checked+.zconOffSwt, .zcanvas-tool-toggle-selected .zconOffSwt, #bgimagetypetool li.zcanvas-tools-list-selected:before {
+    background-position: -441px -102px;
+}
+
+.zconOffBtn, .zconOffSwt {
+    transition: 200ms ease;
+}
+
+.zconOffSwt {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    width: 12px;
+    height: 10px;
+    background: #b3b3b3;
+    background: url(../../assets/images/crm-canvas.svg) no-repeat;
+    background-position: -460px -102px;
+    top: 1px;
+}
+
+input[type="checkbox"].zconOffcb:checked+.zconOffSwt .zconOffBtn {
+    left: 10px;
+}
+
+/* dN for Canvas */
+
+.ziconcontainer, .zconOffcb, .labeliconcheckbox, .firefox .zcanvassliderfill, .zcanvas-on-menu .zcanvas-value-container, .colorpickertool .zctoolopenicon, #boxshadowtool .advancedtool, #boxshadowtool .advancemode .customtool, .zctabsetting .zcanvascolor .zctoolopenicon, .zcanvas-on-menu crm-zsurvey-rl-label .relListHead+span, .zc_context_dropdown .sizeselection .tool-open-icon, .zc_context_dropdown .fontaction .tool-open-icon, #zcanvas-action>.zcanvas-field:before, #zcanvas-layouts>.zcanvas-on-menu:before, .zcanvas-on-menu .zIconLoader, .zc-shadow-tool .zcanvas-tool-input-param, .criteriamoreoptions, .zc-fieldsection .zc_delete_column, .zc-fieldsection .zc-insert-trow, .zc-fieldsection .zctableaddrow, .zc-fieldsection .zc-add-canvas {
+    display: none;
+}
+
+/* Fix for firefox Slider */
+
+@-moz-document url-prefix() {
+    .zcanvassliderfill {
+        display: none !important;
+    }
+    #previewcanvas .zclayout-table .zcanvas-field .zcanvas-data-node, #detailcanvascontainer .zclayout-table .zcanvas-field .zcanvas-data-node {
+        height: 0;
+    }
+}
+
+#canvas-available-tools::after, .canvas-field-menu-container::after {
+    content: '';
+    display: block;
+    height: 80px;
+}
+
+.bordertoolcontainer {
+    width: 255px;
+}
+
+.borderstyleicons {
+    background: #FFF;
+    width: 100%;
+    border-radius: 5px;
+    position: relative;
+}
+
+.borderstyleicons .zcanvas-tools-dropdown {
+    width: 100%;
+    background: #FFF !important;
+    border-bottom: 1px solid #CCC;
+    padding: 0 15px 0px 4px;
+}
+
+.borderstyleicons .zcanvas-tools-dropdown::after {
+    background: url(../../assets/images/svgicons.svg) no-repeat -37px -2174px;
+    width: 5px;
+    height: 9px;
+    content: '';
+    display: inline-block;
+    transform: rotate(90deg);
+    position: relative;
+    top: -5px;
+    left: -5px;
+}
+
+.borderstyleicons .zcanvas-tools-dropdown .tool-selected-value {
+    width: 100%;
+    padding: 12px;
+    height: 25px;
+}
+
+.borderstyleicons .dropdown-container-list {
+    width: 100%;
+}
+
+.borderstyleicons .zcanvas-tools-dropdown-values {
+    display: block;
+    width: 100% !important;
+    position: absolute;
+    top: initial !important;
+    left: initial !important;
+}
+
+.borderstyleicons .dropdown-container-list li {
+    border-style: none !important;
+    background: #FFF;
+    width: 100%;
+    padding: 12px;
+    border-bottom: 1px solid #CCC;
+}
+
+.bordericons li {
+    margin: 4px;
+    border-radius: 0;
+    width: auto;
+    height: auto;
+    padding: 4px;
+}
+
+.bordericons li.zcanvas-tools-list-selected {
+    background: #434343 !important;
+    border: none !important;
+}
+
+.borderstyleicons li {
+    padding: 7px 4px;
+    border-radius: 0;
+    width: 30px;
+    height: 20px;
+    background: #dddddd;
+    box-sizing: border-box;
+}
+
+.ziconselectorbox, .zlabelselectorbox {
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    width: 175px;
+    background: #313548;
+    flex-wrap: wrap;
+    position: fixed;
+    height: 200px;
+    overflow: auto;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .15);
+    border-radius: 1px 3px 3px;
+    cursor: pointer;
+    z-index: 2;
+    box-sizing: content-box;
+}
+
+.zlabelselectorbox {
+    height: auto;
+    width: 100px;
+    display: block;
+    font-size: 14px;
+}
+
+.zlabelselectorbox li {
+    line-height: 26px;
+    padding-left: 4px;
+}
+
+.ziconselectorbox li {
+    padding: 5px 2px 2px;
+    width: 30px;
+    text-align: center;
+    border: 1px solid #e9e9e9;
+    cursor: pointer;
+    color: #dfebfa;
+    height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 24px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.labeliconswitchbtn {
+    text-align: center;
+    background: #e2e2e2;
+    color: #000000;
+    border: 1px solid #dfdfdf;
+    display: inline;
+    box-sizing: border-box;
+    border-right: none;
+    padding: 4px;
+    padding-left: 11px;
+}
+
+input[type="checkbox"].labeliconcheckbox:checked+.labeliconswitchbtn {
+    background: #ffffff !important;
+    display: inline;
+}
+
+input[type="checkbox"]#zcavaslabelswitch+.labeliconswitchbtn {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.labeliconselect {
+    border: 1px solid #dfdfdf;
+    padding: 4px;
+    box-sizing: border-box;
+    display: inline;
+    border-left: none;
+}
+
+.iconlabelsep {
+    margin: 0px 5px;
+}
+
+.zicondropdown {
+    padding: 4px;
+    display: inline;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.ungroupbtn {
+    background: #fff;
+    border: 1px solid #d3d3d3;
+    height: 30px;
+    width: 60px;
+    padding: 4px;
+}
+
+.zcanvascolor {
+    width: 32px;
+    height: 25px;
+    text-align: right;
+    padding: 0px 3px;
+    box-sizing: border-box;
+    border: 2px solid #55586A;
+    border-radius: 3px;
+}
+
+/**
+    * Slider customization
+    */
+
+.zcanvas-tools-slider input[type=range] {
+    -webkit-appearance: none;
+    vertical-align: middle;
+    position: relative;
+    background: transparent;
+    width: 100%;
+}
+
+.zcanvas-tools-slider input[type=range]:focus {
+    outline: none;
+}
+
+.zcanvas-tools-slider input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 3px;
+    cursor: pointer;
+    box-shadow: 0px 0px 0px #ffb2df, 0px 0px 0px #ffccea;
+    background: #55586A;
+    border-radius: 1px;
+    border: 1px solid #55586A;
+}
+
+.zcanvas-tools-slider input[type=range]::-webkit-slider-thumb {
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
+    height: 12px;
+    width: 12px;
+    border-radius: 12px;
+    background: #959595;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -5.2px;
+    z-index: 2;
+    position: relative;
+}
+
+.zcanvas-tools-slider input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #55586A;
+}
+
+.zcanvas-tools-slider input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 3px;
+    cursor: pointer;
+    box-shadow: 0px 0px 0px #ffb2df, 0px 0px 0px #ffccea;
+    background: #55586A;
+    border-radius: 1px;
+    border: 1px solid #55586A;
+}
+
+.zcanvas-tools-slider input[type=range]::-moz-range-thumb {
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
+    height: 12px;
+    width: 12px;
+    border-radius: 12px;
+    background: #959595;
+    cursor: pointer;
+    z-index: 2;
+    position: relative;
+}
+
+.zcanvas-tools-slider input[type=range]::-ms-track {
+    width: 100%;
+    height: 1px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+.zcanvas-tools-slider input[type=range]::-ms-fill-lower {
+    background: #45b0ff;
+    border: 1px solid #cccccc;
+    border-radius: 2px;
+    box-shadow: 0px 0px 0px #ffb2df, 0px 0px 0px #ffccea;
+}
+
+.zcanvas-tools-slider input[type=range]::-ms-fill-upper {
+    background: #cccccc;
+    border: 1px solid #cccccc;
+    border-radius: 2px;
+    box-shadow: 0px 0px 0px #ffb2df, 0px 0px 0px #ffccea;
+}
+
+.zcanvas-tools-slider input[type=range]::-ms-thumb {
+    box-shadow: 0px 0px 0px #27aaff, 0px 0px 0px #41b4ff;
+    border: 0px solid #ffcdff;
+    /*  height: 12px; */
+    width: 12px;
+    border-radius: 12px;
+    background: #959595;
+    cursor: pointer;
+    height: 1px;
+}
+
+.zcanvas-tools-slider input[type=range]:focus::-ms-fill-lower {
+    background: #55586A;
+}
+
+.zcanvas-tools-slider input[type=range]:focus::-ms-fill-upper {
+    background: #ebebeb;
+}
+
+.zcanvas-tools-slider input[type="range"]::-moz-range-progress {
+    background-color: #057AFF;
+}
+
+.zcanvassliderfill {
+    height: 3px;
+    display: inline-block;
+    position: absolute;
+    background: #057AFF;
+    top: 8px;
+    z-index: 1;
+    border-radius: 4px;
+    max-width: 100%;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+#ztempradiuscontroller .zcanvassliderfill {
+    background: transparent;
+}
+
+#ztempradiuscontroller {
+    position: fixed;
+    margin-top: 0px;
+    background-color: #313548;
+}
+
+#ztempradiuscontroller input[type=range]::-webkit-slider-runnable-track {
+    background: #dfebfa !important;
+    border: 1px solid #dfebfa;
+}
+
+/**
+    * Slider end
+    */
+
+/**	
+    * menu styles
+    */
+
+.zcanvas-menu-heading {
+    /* padding: 5px 6px; */
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #018ed4;
+    line-height: 1;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    cursor: pointer;
+    margin: 0;
+}
+
+.zcanvas-menu-heading:after {
+    content: '';
+    background: url(../../assets/images/crm-canvas.svg) no-repeat;
+    display: inline-block;
+    background-position: -22px -393px;
+    width: 8px;
+    height: 4px;
+    position: relative;
+    right: -10px;
+    top: -3px;
+}
+
+.zcanvas-on-menu {
+    padding: 8px !important;
+    background: #3e435a !important;
+    color: rgba(219, 226, 235, .75);
+    border-radius: 4px;
+    font-size: 13px;
+    margin-top: 8px;
+    position: relative;
+    cursor: default;
+    border: 1px solid transparent;
+}
+
+.zcanvas-on-menu:hover {
+    color: #DBE2EB;
+    background: #4d536f !important;
+    border: 1px dashed #7a82a9;
+}
+
+/* .editor > .zcanvas-field, .zcanvas-selectbox > .zcanvas-field , .zcanvas.ui-draggable-handle , .zcstatictext.ui-draggable-handle{
+    cursor: default;
+    }
+    .zcanvas.ui-draggable-dragging , .zcstatictext.ui-draggable-handle.ui-draggable-dragging , body>.zcanvas-field.ui-draggable-dragging{
+    cursor: default !important;
+    }
+    */
+
+.zc-selection-start {
+    cursor: auto !important;
+}
+
+#canvasdetails {
+    width: 100%;
+    height: 100%;
+    z-index: 1001;
+}
+
+#canvasdetails .pp-header {
+    background-color: #fff;
+}
+
+#canvasdetails .pp-content {
+    height: calc(100vh - 93px);
+    max-height: 100% !important;
+    padding: 0;
+}
+
+#canvasdetails .pp-footer {
+    padding: 0 !important;
+}
+
+#canvasdetails .pp-footer button {
+    margin: 0 !important;
+}
+
+.canvas-uitools {
+    max-width: calc(100% - 450px);
+    white-space: nowrap;
+}
+
+.canvas-uitools .nowrapscroll {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.zcnomenubar .canvas-menu-container {
+    padding: 0;
+    width: 0;
+    transition: 100ms all ease-in-out;
+    border: none;
+}
+
+.zcnomenubar .canvas-page-container {
+    width: 100%;
+    transition: 100ms all ease-in-out;
+}
+
+.zc-add-canvas {
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    position: absolute;
+    bottom: -10px;
+    left: calc(50% + 50px);
+    text-align: center;
+    color: #fff;
+    border-radius: 50%;
+    box-sizing: border-box;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateX(-50%);
+    z-index: 91;
+}
+
+.zccopy {
+    background-position: -7px -5px;
+    width: 18px;
+    height: 19px;
+    display: inline-block;
+}
+
+.zcpaste {
+    background-position: -37px -5px;
+    width: 15px;
+    height: 20px;
+    display: inline-block;
+}
+
+.zcundo {
+    background-position: -91px -80px;
+    width: 16px;
+    height: 13px;
+    display: inline-block;
+}
+
+.zcredo {
+    background-position: -112px -79px;
+    width: 16px;
+    height: 14px;
+    display: inline-block;
+}
+
+.zcdelete {
+    background-position: -62px -6px;
+    width: 16px;
+    height: 18px;
+    display: inline-block;
+}
+
+.zcpreview {
+    background-position: -58px -83px;
+    width: 22px;
+    height: 11px;
+    display: inline-block;
+    /* position: relative; */
+    /* top: 6px; */
+}
+
+.zcfullscreen {
+    background-position: -31px -80px;
+    width: 16px;
+    height: 18px;
+    display: inline-block;
+    position: relative;
+    top: 5px;
+}
+
+.zcminscreen {
+    background-position: -471px -208px;
+}
+
+.zctoolgridicon {
+    background: url(../../assets/images/crm-canvas.svg) no-repeat;
+    background-position: -430px -69px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 6px;
+}
+
+.zcthemesettingsicon {
+    background-position: -473px -35px;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    position: relative;
+    top: 4px;
+}
+
+.zcthemecloseicon {
+    background-position: -322px -71px;
+    width: 18px;
+    height: 10px;
+}
+
+.zcthemecloseicon:hover {
+    background-position: -339px -71px;
+}
+
+.zcthemeopenarrow {
+    background-position: -380px -98px;
+    width: 8px;
+    height: 4px;
+    transform: rotate(-90deg);
+    position: relative;
+    left: -5px;
+}
+
+.zctoolopenicon {
+    background: url(../../assets/images/crm-canvas.svg) no-repeat -139px -126px;
+    width: 11px;
+    height: 6px;
+    content: '';
+    display: inline-block;
+    position: relative;
+    vertical-align: bottom;
+}
+
+.zctoolleftalignicon {
+    background: url(../../assets/images/crm-canvas.svg) no-repeat;
+    background-position: -10px -41px;
+    width: 18px;
+    height: 14px;
+    display: inline-block;
+}
+
+.zctoolrightalignicon {
+    background: url(../../assets/images/crm-canvas.svg) no-repeat;
+    background-position: -61px -41px;
+    width: 18px;
+    height: 14px;
+    display: inline-block;
+}
+
+.zctoolmiddlealignicon {
+    background: url(../../assets/images/crm-canvas.svg) no-repeat;
+    background-position: -36px -41px;
+    width: 18px;
+    height: 14px;
+    display: inline-block;
+}
+
+.zcanvas-tools-list-selected .zctoolleftalignicon {
+    background-position: -84px -40px;
+}
+
+.zcanvas-tools-list-selected .zctoolrightalignicon {
+    background-position: -136px -40px;
+}
+
+.zcanvas-tools-list-selected .zctoolmiddlealignicon {
+    background-position: -111px -40px;
+}
+
+.zctooluppercaseicon {
+    background: url(../../assets/images/crm-canvas.svg) no-repeat;
+    background-position: -163px -43px;
+    margin: auto;
+    display: inline-block;
+    width: 19px;
+    height: 11px;
+}
+
+.zcanvas-tools-list-selected .zctooluppercaseicon {
+    background-position: -190px -42px;
+}
+
+.zctoollowercaseicon {
+    background: url(../../assets/images/crm-canvas.svg) no-repeat;
+    background-position: -214px -44px;
+    margin: auto;
+    display: inline-block;
+    width: 18px;
+    height: 11px;
+    position: relative;
+    top: 1px;
+}
+
+.zcanvas-tools-list-selected .zctoollowercaseicon {
+    background-position: -234px -44px;
+}
+
+.zcanvas-tool-toggle-selected .zctoollinethroughicon {
+    background-position: -277px -42px;
+}
+
+.zcanvas-tool-toggle-selected .zctoolsitalicicon {
+    background-position: -236px -42px;
+}
+
+.zctoollinethroughicon {
+    background: url(../../assets/images/crm-canvas.svg) no-repeat;
+    background-position: -252px -42px;
+    width: 19px;
+    height: 13px;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+}
+
+.zcthemecheckbox {
+    width: 16px;
+    height: 17px;
+}
+
+#verticalaligntool .tool-selected-value, #aligntool .tool-selected-value, #topaligntool .tool-selected-value {
+    vertical-align: middle;
+    padding: 0;
+}
+
+#verticalaligntool .dropdown-container-list li, #aligntool .dropdown-container-list li, #topaligntool .dropdown-container-list li {
+    padding: 8px 15px;
+}
+
+.zctoolsitalicicon {
+    background: url(../../assets/images/crm-canvas.svg) no-repeat;
+    margin: auto;
+    background-position: -217px -43px;
+    width: 9px;
+    height: 11px;
+    display: inline-block;
+}
+
+.zctoolbordericon {
+    background: url(../../assets/images/crm-canvas.svg) no-repeat;
+    width: 28px;
+    height: 29px;
+    display: block;
+}
+
+.zctoolnobordericon {
+    background-position: -9px -98px;
+}
+
+.zctoolborderrighticon {
+    background-position: -334px -113px;
+}
+
+.zctoolborderlefticon {
+    background-position: -252px -113px;
+}
+
+.zctoolbordertopicon {
+    background-position: -294px -111px;
+}
+
+.zctoolborderbottomicon {
+    background-position: -271px -73px;
+}
+
+.zctoolborderallicon {
+    background-position: -345px -72px;
+}
+
+.zctoolsolidbordericon {
+    border-bottom: 4px solid #FFF;
+    display: block;
+}
+
+.zctooldashedbordericon {
+    border-bottom: 4px dashed #FFF;
+    display: block;
+}
+
+.zctooldottedbordericon {
+    border-bottom: 4px dotted #FFF;
+    display: block;
+}
+
+.zctooldoublebordericon {
+    border-bottom: 5px double #FFF;
+    display: block;
+}
+
+.zcuserphotoicon {
+    background-image: url(../../assets/images/svgicons.svg);
+    background-position: -115px -101px;
+    width: 15px;
+    height: 14px;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+}
+
+.zccolorpicker {
+    background: url(static/images/canvascolorpicker.png);
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    position: relative;
+    top: 3px;
+}
+
+.zcaddsec {
+    background-position: -88px -8px;
+    width: 19px;
+    height: 16px;
+    display: inline-block;
+    top: -2px;
+    position: relative;
+}
+
+.zcanvas-submenu-heading::before {
+    background: url(../../assets/images/svgicons.svg) no-repeat -57px -1860px;
+    width: 8px;
+    height: 4px;
+    content: '';
+    display: inline-block;
+    transform: none;
+    opacity: 0.4;
+    float: left;
+    position: relative;
+    left: -10px;
+    top: 5px;
+}
+
+/* .zcanvas-submenu-heading::after {
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    } */
+
+/* .zcanvas-submenu-heading::before { */
+
+.zcanvas-submenu-heading.zcnotransform {
+    border-radius: 4px;
+    background: #494e64;
+}
+
+.zcnotransform::before, .zcnotransform::after {
+    transform: rotate(-90deg);
+}
+
+.zcanvascolor .zctoolopenicon {
+    position: relative;
+    top: 5px;
+}
+
+.zctogglemenuicon {
+    position: fixed;
+    top: 50%;
+    left: 230px;
+    background-position: -47px -181px;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 52px;
+    display: none;
+}
+
+.zcnomenubaricon {
+    left: 0px;
+}
+
+.zcleftarrowicon {
+    background: url(../../assets/images/svgicons.svg) no-repeat;
+    background-position: -65px -293px;
+    width: 6px;
+    height: 11px;
+    display: inline-block;
+    transform: rotate(180deg);
+    position: relative;
+    left: 3px;
+    transition: transform .5s;
+}
+
+.zcrotateicon {
+    top: 15px;
+}
+
+.zcnomenubaricon .zcrotateicon {
+    transform: rotate(0deg);
+}
+
+.zcanvas-tool-disable .zcanvas-tools-dropdown {
+    background: #f3f3f3 !important;
+}
+
+.zc-namefield {
+    outline: none !important;
+    background-color: #1f212b;
+    width: 250px;
+    height: 29px;
+    border: solid 1px #3c425a;
+    box-shadow: none;
+    padding: 2px 10px;
+    color: #777a88;
+    border-radius: 3px;
+}
+
+.zc-namefield:focus {
+    color: #fff;
+    box-shadow: 0px 1px 3px 2px rgba(0, 145, 255, 0.38);
+}
+
+.zc-namefield::-webkit-input-placeholder {
+    color: #777a88;
+}
+
+.zcanvas-editor-outer .zcanvas-inner-component a, .zcanvas-editor-outer .zcanvas-inner-component lyte-button, .zcanvas-editor-outer .zcanvas-inner-component link-to, .zcanvas-editor-outer .zcanvas-inner-component [onclick], .zcanvas-editor-outer .zcanvas-inner-component [click], .zcanvas-editor-outer crm-detail-view-blueprint-action, #previewcanvas crm-detail-view-blueprint-action, #previewcanvas .zc-rl-outcontainer a, #previewcanvas .zc-rl-outcontainer lyte-button, #previewcanvas .zc-rl-outcontainer link-to, #previewcanvas .zc-rl-outcontainer [onclick], #previewcanvas .zcanvas-inner-component a, #previewcanvas .zcanvas-inner-component lyte-button, #previewcanvas .zcanvas-inner-component link-to, #previewcanvas .zcanvas-inner-component [onclick], #previewcanvas .zccbutton, #previewcanvas .zcanvas-inner-component [click], .zcanvas-editor-outer .zcanvas-inner-component .lv_data_user, #previewcanvas crux-note, .zcanvas-editor-outer .zcanvas-inner-component crm-tag .addIcon, #previewcanvas crm-tag .addIcon, .zcanvas-editor-outer .zcImageUpload, #previewcanvas .zcImageUpload, .zcanvas-editor-outer #backArrowDV, #previewcanvas #backArrowDV, #previewcanvas #sendEntityMailLink, #previewcanvas .zc-rl-outcontainer, .zcanvas-editor-outer crm-territory-field, #previewcanvas crm-territory-field, .zcanvas-editor-outer crm-detail-view-data-privacy, #previewcanvas crm-detail-view-data-privacy, .zcanvas-editor-outer crm-zsurvey-rl-body, #previewcanvas crm-zsurvey-rl-body .zcanvas-editor-outer .zIconLoader, #previewcanvas .zIconLoader, .zc-rl-sub-selectable>* {
+    pointer-events: none !important;
+}
+
+.canvas-page-container .zcanvas-editor-outer.ui-droppable-active {
+    outline: 2px dashed rgba(0, 0, 0, .2);
+}
+
+.zcanvas-relatedlist-container {
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    min-height: auto !important;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+/* .zc-tab-content{
+    height: 100% !important;
+    } */
+
+.zctabsettingicon {
+    background: url(../../assets/images/crm-canvas.svg) no-repeat -8px -68px;
+    width: 19px;
+    height: 17px;
+}
+
+.zcanvas-opened-dropdown .zctabsettingicon {
+    background-position: -36px -68px;
+}
+
+.zccornertool {
+    background: rgba(0, 0, 0, .13);
+    width: 18px;
+    height: 18px;
+}
+
+.zccornertool span {
+    width: 10px;
+    height: 10px;
+    margin: 4px;
+    display: inline-block;
+}
+
+.zctablefttopicon span {
+    border-top-left-radius: 50%;
+    border-left: 3px solid;
+    border-top: 3px solid;
+}
+
+.zctabrighttopicon span {
+    border-top-right-radius: 50%;
+    border-right: 3px solid;
+    border-top: 3px solid;
+}
+
+.zctableftbottomicon span {
+    border-bottom-left-radius: 50%;
+    border-left: 3px solid;
+    border-bottom: 3px solid;
+    top: 4px;
+    position: relative;
+}
+
+.zctabrightbottomicon span {
+    border-bottom-right-radius: 50%;
+    border-right: 3px solid;
+    border-bottom: 3px solid;
+    top: 4px;
+    position: relative;
+}
+
+.zctabradius {
+    border: 1px solid #9a9595;
+    margin-left: 2px;
+    padding: 2px 1px;
+    border-radius: 3px;
+}
+
+.zcnorecord {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.zc-btn-group {
+    font-size: 12px;
+    text-align: center;
+    color: #fff;
+}
+
+.zc-btn-group .zcanvas-tools-list-select li {
+    border: none;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.zc-btn-group .zc-btn {
+    padding: 1px 8px;
+    background: rgba(0, 0, 0, .4);
+    cursor: pointer;
+}
+
+.zc-btn-group .zcanvas-tools-list-selected {
+    background: #818bec;
+}
+
+.zc-btn-group .zcanvas-tools-list-selected .zc-btn {
+    background: #818bec !important;
+    color: #fff !important;
+}
+
+.jccenter {
+    justify-content: center;
+    text-align: center;
+}
+
+.zcanvas-submenu-heading {
+    padding: 9px 20px;
+    font-size: 12px;
+    text-transform: uppercase;
+    background: #3e435a !important;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    position: relative;
+    color: rgba(144, 151, 160, .75);
+    z-index: 1;
+    border: 1px solid transparent;
+    cursor: default;
+}
+
+.zcanvas-submenu-heading:hover {
+    color: #9097a0;
+    border: 1px dashed #7a82a9;
+}
+
+.zcanvas-submenu-heading.ui-draggable-dragging {
+    border-radius: 4px !important;
+}
+
+.zcanvas-submenu-container {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0px 0px 4px 4px;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+.zcanvas-editor-outer>.ds-selector {
+    z-index: 10;
+}
+
+/* Override button defaults */
+
+.zcanvas-value-container #backArrowDV {
+    left: 0;
+    top: 0;
+    margin: 0;
+}
+
+.zcanvas-value-container #backArrowDV .backtoIcon {
+    width: auto !important;
+    height: auto !important;
+}
+
+.zccolorbox {
+    font-size: 12px;
+    width: 160px;
+    margin: 10px;
+    border-radius: 5px;
+    height: 26px;
+    padding: 0px 8px 0px 4px;
+}
+
+.zcanvas-value-container .timeLineHistTime {
+    box-sizing: initial;
+}
+
+.zcanvas-timeline .zcanvas-value-container {
+    height: inherit;
+    overflow: auto;
+}
+
+#boxshadowtool .toollabel {
+    width: 110px;
+}
+
+.zcanvas-value-container crux-number-component .numberDivCaseView, .zcanvas-value-container crux-number-component .numberDivCurrencyView {
+    text-align: inherit !important;
+}
+
+.zcanvas-value-container crm-detail-view-blueprint-action {
+    pointer-events: none;
+}
+
+.zcanvas-value-container crm-detail-view-blueprint-action .newRelDetails {
+    margin: 30px 0px 0px;
+}
+
+.zcanvas-editor-outer crm-detail-view-blueprint-action #pb_processButtonLayer {
+    min-height: 115px;
+}
+
+.zcanvas-relatedlist-container .zcanvas-editor-resize {
+    position: absolute;
+    bottom: 0;
+    height: 3px;
+    cursor: ns-resize;
+}
+
+.colorpickertool {
+    float: left;
+    margin-left: 4px;
+    border: 1px solid #CCCCCC;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 0px !important;
+}
+
+.colorpickertool>div {
+    border-radius: 3px;
+}
+
+#boxshadowtool form {
+    float: left;
+}
+
+#boxshadowtool form fieldset {
+    padding: 0;
+    border: none;
+}
+
+#boxshadowtool form fieldset span {
+    margin-left: 10px;
+}
+
+#boxshadowtool .anglelabel {
+    width: auto !important;
+}
+
+#boxshadowtool .zcboxbutton {
+    text-align: center;
+    display: block;
+}
+
+#boxshadowtool .zcboxbutton button {
+    height: 35px;
+    padding: 0px 27px;
+    font-size: 14px;
+    border: 0;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.boxtoolcontainer {
+    width: 267px;
+}
+
+.zctabcornertools {
+    display: flex !important;
+}
+
+.zcspacinginput .zcanvas-tools-input {
+    display: inline-block;
+    height: 26px;
+    width: 44px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.radiusfill {
+    background-position: -232px -149px;
+}
+
+.spaceicon .zcanvas-tools-input, .radiusicon .zcanvas-tools-input, .zc-shadow-tool .zcanvas-tools-input, .zc_hexinput .zcanvas-tools-input, .zc_tabname .zcanvas-tools-input {
+    background: #323648;
+    padding: 7px;
+    width: 50px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #393F5D;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.spaceicon .zcanvas-tools-input:focus-within, .radiusicon .zcanvas-tools-input:focus-within, .zc-shadow-tool .zcanvas-tools-input:focus-within, .zc_hexinput .zcanvas-tools-input:focus-within, .zc_tabname .zcanvas-tools-input:focus-within, .canvas_field_search:focus-within, .canvas-page-container .canvas_field_search:focus-within {
+    border-color: #057AFF !important;
+}
+
+.spaceicon .zcanvas-tools-input:hover:not(:focus-within), .radiusicon .zcanvas-tools-input:hover:not(:focus-within), .zc-shadow-tool .zcanvas-tools-input:hover:not(:focus-within), .zcanvas-tools-dropdown:hover, .zc_hexinput .zcanvas-tools-input:hover:not(:focus-within), .zcanvascolor:hover, .zc_tabname .zcanvas-tools-input:hover:not(:focus-within), #depthforward:hover button, #depthbackward:hover button {
+    border-color: #6C7186 !important;
+}
+
+.dimensiontool .zcanvas-tools-input, .dimensiontool .zcanvastoolinput {
+    width: 60px;
+}
+
+.zcanvas-tools-input:focus-within .zcanvas-tool-input-param {
+    color: rgba(255, 255, 255, .5);
+}
+
+.zc-shadow-tool .zcanvas-tools-input {
+    width: 34px;
+    height: 25px;
+}
+
+.zc_hexinput .zcanvas-tools-input:focus-within .zcanvastoolinput, .zc_hexinput .zcanvas-tools-input:focus-within .zcanvas-tool-input-param, .zccolorpickerwrap .lyteInputBox input {
+    color: #DBE2EB;
+}
+
+.zc_hexinput .zcanvas-tools-input {
+    width: 75px;
+    height: 25px;
+    font-size: 12px;
+}
+
+.zc_tabname .zcanvas-tools-input {
+    width: 250px;
+    height: 25px;
+    font-size: 12px;
+}
+
+.zc_hexinput .zcanvas-tool-input-param {
+    font-size: 13px;
+    margin-right: 2px;
+    color: rgba(219, 226, 235, .5);
+}
+
+.zc_hexinput .zcanvastoolinput {
+    width: 65px;
+    color: rgba(219, 226, 235, .5);
+}
+
+.zc_tabname .zcanvastoolinput {
+    width: 170px;
+    color: rgba(219, 226, 235, .5);
+}
+
+.radiusicon .zcanvas-tools-input::before, .radiusicon .zcanvas-tools-input::after {
+    content: '';
+    position: absolute;
+    border-radius: 4px;
+    background: #777A8D;
+    top: -2px;
+    left: -2px;
+}
+
+.radiusicon .zcanvas-tools-input:focus-within::before, .radiusicon .zcanvas-tools-input:focus-within::after {
+    background: #057AFF;
+}
+
+.radiusicon.radiusleft .zcanvas-tools-input::before {
+    width: 3px;
+    height: 14px;
+}
+
+.radiusicon.radiusleft .zcanvas-tools-input::after {
+    height: 3px;
+    width: 14px;
+}
+
+.radiusicon.radiusright .zcanvas-tools-input::before {
+    width: 3px;
+    height: 14px;
+    right: -2px;
+    left: initial;
+}
+
+.radiusicon.radiusright .zcanvas-tools-input::after {
+    height: 3px;
+    width: 14px;
+    left: initial;
+    right: -2px;
+}
+
+.radiusicon.radiustop .zcanvas-tools-input::before {
+    width: 3px;
+    height: 14px;
+    top: initial;
+    bottom: -2px;
+    left: initial;
+    right: -2px;
+}
+
+.radiusicon.radiustop .zcanvas-tools-input::after {
+    height: 3px;
+    width: 14px;
+    left: initial;
+    right: -2px;
+    top: initial;
+    bottom: -2px;
+}
+
+.radiusicon.radiusbottom .zcanvas-tools-input::before {
+    width: 3px;
+    height: 14px;
+    bottom: -2px;
+    top: initial;
+}
+
+.radiusicon.radiusbottom .zcanvas-tools-input::after {
+    height: 3px;
+    width: 14px;
+    top: initial;
+    bottom: -2px;
+}
+
+.spaceleft .zcanvas-tools-input {
+    border-left-width: 3px;
+    border-left-color: #777A8D;
+}
+
+.spaceright .zcanvas-tools-input {
+    border-right-width: 3px;
+    border-right-color: #777A8D;
+}
+
+.spacetop .zcanvas-tools-input {
+    border-top-width: 3px;
+    border-top-color: #777A8D;
+}
+
+.spacebottom .zcanvas-tools-input {
+    border-bottom-width: 3px;
+    border-bottom-color: #777A8D;
+}
+
+/* dNImp for Canvas */
+
+.zc-sep-hide, .zcanvas-menuhidden, .zc-border-hide, .zc-strict-hide, .zclayout.zcdivider.zc-hr-line .ui-resizable-n, .zclayout.zcdivider.zc-hr-line .ui-resizable-s, .zclayout.zcdivider.zc-vr-line .ui-resizable-e, .zclayout.zcdivider.zc-vr-line .ui-resizable-w, .zc-search-hide {
+    display: none !important;
+}
+
+.zctoolvleftalignicon {
+    background: url(../../assets/images/crm-canvas.svg) no-repeat;
+    background-position: -304px -38px;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+}
+
+.zctoolvmiddlealignicon {
+    background: url(../../assets/images/crm-canvas.svg) no-repeat;
+    background-position: -331px -39px;
+    width: 18px;
+    height: 20px;
+    display: inline-block;
+}
+
+.zctoolvrightalignicon {
+    background: url(../../assets/images/crm-canvas.svg) no-repeat;
+    background-position: -355px -39px;
+    width: 18px;
+    height: 20px;
+    display: inline-block;
+}
+
+.zctoolvdistalignicon {
+    background: url(../../assets/images/crm-canvas.svg) no-repeat;
+    background-position: -476px -43px;
+    width: 18px;
+    height: 13px;
+    display: inline-block;
+}
+
+.zctoolvleftalignicon:hover {
+    background-position: -303px -8px;
+}
+
+.zctoolvmiddlealignicon:hover {
+    background-position: -330px -9px;
+}
+
+.zctoolvrightalignicon:hover {
+    background-position: -354px -9px;
+}
+
+.zctoolvdistalignicon:hover {
+    background-position: -475px -13px;
+}
+
+#verticalaligntool .zcanvas-opened-dropdown, #topaligntool .zcanvas-opened-dropdown {
+    padding-bottom: 0;
+}
+
+.previewmode {
+    width: 100px;
+    display: inline-block;
+    left: 50%;
+    transform: translate(-50%);
+    position: relative;
+    font-size: 14px;
+    background: #d6cccc;
+    border-radius: 5px;
+}
+
+.previewmode span {
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+
+.previewmode span.selectedmode {
+    background: #818bec;
+    color: #fff;
+}
+
+.fixedpreview.selectedmode {
+    border-radius: 5px 0px 0px 5px;
+}
+
+.fluidpreview.selectedmode {
+    border-radius: 0px 5px 5px 0px;
+}
+
+.fluidlayout {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: auto;
+}
+
+.canvassizeinput {
+    display: none;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+
+#sizeselect .zcselectinput, #defaulttabsizetool .zcselectinput, .sizeselection .zcselectinput {
+    border: none;
+    width: 20px;
+    background: transparent;
+    text-align: center;
+    color: #FFFFFF;
+    vertical-align: middle;
+    font-size: 13px;
+}
+
+#defaulttabsizetool .zcselectinput {
+    color: #000;
+}
+
+#sizeselect .zcanvas-opened-dropdown .zcselectinput, .sizeselection .zcanvas-opened-dropdown .zcselectinput {
+    color: #fff;
+}
+
+#defaulttabborderside .dropdown-container-list {
+    padding: 0px 16px;
+    background: #FFF;
+}
+
+#defaulttabborderside .dropdown-container-list li, #defaulttabsizetool .dropdown-container-list li {
+    background: #FFF;
+    color: #000;
+}
+
+#zctabbuttontype .zcanvas-tools-list-select {
+    background: #fff;
+}
+
+#zctabbuttontype .zc-btn {
+    background: #fff;
+    color: #000;
+}
+
+.zcspacebetween {
+    justify-content: space-between;
+}
+
+.zctabsetting .zcanvascolor {
+    border: 1px solid #FFF;
+    border-radius: 4px;
+    width: 45px;
+    height: 30px;
+}
+
+.zctabsetting .zcanvas-tools-dropdown {
+    border: 1px solid #fff;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background: #FFF;
+}
+
+.fdcolumn {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+}
+
+.zctabmargin_tool .toolaction {
+    display: inline-block;
+    position: relative;
+}
+
+.zcsectionicon {
+    background-position: -65px -66px;
+    width: 20px;
+    height: 19px;
+    display: inline-block;
+}
+
+.zcanvas-opened-dropdown .zcsectionicon {
+    background-position: -92px -66px;
+}
+
+.zc-sectionsizetool #sectionwidthtypetool, .zc-sectionsizetool #sectionheighttypetool {
+    position: relative;
+    left: -30px;
+    display: inline-block;
+    cursor: pointer
+}
+
+#sectionheighttypetool {
+    left: -38px !important;
+}
+
+.zc-sectionsizetool .zcanvastoolinput {
+    width: 70px;
+}
+
+.zc-sectionsizetool .zcanvas-tools-dropdown .tool-selected-value {
+    font-size: 12px;
+}
+
+.zcrotate90 {
+    transform: rotate(90deg);
+}
+
+/**
+    * Animations for Canvas
+    */
+
+@keyframes slideright {
+    100% {
+        right: 0;
+    }
+}
+
+@keyframes slideleft {
+    100% {
+        right: -390px;
+    }
+}
+
+@keyframes slideleftmenu {
+    100% {
+        right: 390px;
+    }
+}
+
+@keyframes sliderighmenu {
+    100% {
+        right: 0;
+    }
+}
+
+/* End of Animations */
+
+.canvas-builder-area {
+    padding: 20PX;
+    background: #14141c;
+    box-sizing: content-box;
+    width: 100vw;
+    min-height: 100%;
+    /* min-width: 100%;*/
+    min-width: calc(100% - 40px);
+    /* Add hidden for find parent container */
+    overflow: hidden;
+}
+
+.zcfixedtools.zcanvas-tool-toggle-selected {
+    border: none !important;
+}
+
+.zcanvasfullheight:not(.zcanvassection):not(.zctabview) {
+    bottom: 0 !important;
+    height: initial !important;
+    max-height: initial !important;
+}
+
+/**
+    * Temp Css to hide the title for static Relatedlists
+    */
+
+.canvas-page-container crux-note .showHideCruxNote, .canvas-page-container crm-related-list-view-header .relListHead, .canvas-page-container .zcanvas-relatedlist-container .relListHead, .canvas-page-container .zc-rellist-head, .canvas-outer crux-note .showHideCruxNote, .canvas-outer crm-related-list-view-header .relListHead, .canvas-outer .zc-rellist-head, .canvas-outer crm-related-list-checklist .relListHead, .zcanvas-editor-outer related-list-segment .relListHead, .canvas-outer related-list-segment .relListHead, .canvas-page-container related-list-segment .relListHead {
+    display: none;
+}
+
+.canvas-page-container crux-note .cruxNoteToggleArrow, .canvas-outer crux-note .cruxNoteToggleArrow {
+    display: block;
+    top: -20px;
+}
+
+.canvas-page-container crux-note .cruxNotes, .canvas-outer crux-note .cruxNotes {
+    margin-top: 8px;
+}
+
+.divClass>.zcanvas .cruxNotesList, .zcanvas crm-timeline {
+    line-height: normal;
+}
+
+.zcanvas-static-editor .timeLineHistDataList li>span:nth-child(2), .zcanvassection .timeLineHistDataList li>span:nth-child(2) {
+    width: calc(100% - 125px) !important;
+}
+
+.zcanvas-static-editor lyte-table-structure {
+    background: transparent !important;
+}
+
+.zcanvas-on-menu crm-zsurvey-rl-label .relListHead {
+    font-size: 13px;
+    color: #3F5265;
+    font-family: LatoRegular
+}
+
+.zcanvas-value-container crux-date-component span, .zcanvas-value-container crux-date-time-component span {
+    font-size: inherit !important;
+}
+
+.zcanvas-value-container crux-user-component {
+    display: inline-flex;
+    width: 100%;
+}
+
+.zcanvassection crux-note {
+    white-space: normal;
+}
+
+.zc_context_dropdown {
+    position: fixed;
+    z-index: 10001;
+    padding: 20px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .05);
+    background: #f9f8f8;
+    width: 400px;
+}
+
+.zc_context_dropdown .sizeselection, .zc_context_dropdown .fontaction {
+    position: relative;
+    top: -5px;
+}
+
+.zc_context_dropdown .sizeselection input {
+    border: 1px solid #BABABA;
+}
+
+.zc_context_dropdown .sizeselection .zcanvas-opened-dropdown input {
+    border: 0;
+}
+
+.zcanvastooltext {
+    min-height: 60px;
+    width: 100%;
+    background: #1b1d2c;
+    border: 1px solid transparent;
+    color: #606D7B;
+    font-size: 12px;
+    border-radius: 3px !important;
+}
+
+.zcanvas-editor, .zcanvassection, .canvas-outer, .zcanvas-editor-outer, .zc-tab-container, .zcstatictext, .zcstaticicon, .zciconcontainer {
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.zc-gradienttool {
+    align-items: center;
+}
+
+.zc-advanced-bgtools {
+    flex-direction: column;
+}
+
+.zc-adv-bg-selected {
+    background: #868BF2;
+}
+
+#bgimagetypetool li {
+    background-color: transparent;
+    width: auto;
+    padding: 3px;
+    margin: 0;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+#bgimagetypetool li:before {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    width: 12px;
+    height: 10px;
+    background: #b3b3b3;
+    background: url(../../assets/images/crm-canvas.svg) no-repeat;
+    background-position: -460px -102px;
+    top: 0px;
+    content: '';
+    margin-right: 5px;
+}
+
+#bgimagetypetool li.zcanvas-tools-list-selected {
+    border: 0 !important;
+}
+
+.posaligntool .zcanvas-tools-list-select li {
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.posaligntool .zcanvas-tools-list-select li.zcanvas-tools-list-selected {
+    border-color: transparent !important;
+}
+
+.zccolorpickerwrap .lyteColorPicker__colorpan {
+    margin: 2px;
+}
+
+.zccolorpickerwrap lyte-popover-content, .zccolorpickerwrap .lytePopover {
+    background: rgb(41, 44, 60);
+    border: 1px solid rgb(55, 61, 80);
+}
+
+.zccolorpickerwrap .lyteColorPicker__nocolorbutton, .zccolorpickerwrap .lyteColorPicker__palettecontainer {
+    border-bottom: 1px solid #373d50;
+}
+
+.zccolorpickerwrap .lyteColorPicker__paletteheading {
+    display: block !important;
+    color: #9799a5;
+}
+
+.zccolorpickerwrap .lyteColorPicker__text {
+    display: inline-block !important;
+    color: #8a96a4;
+}
+
+.zccolorpickerwrap .colorDiv {
+    border: 1px solid #373d50;
+}
+
+.zccolorpickerwrap lyte-table-structure, .zccolorpickerwrap lyte-tr {
+    background: #292c3c;
+}
+
+.zccolorpickerwrap lyte-dropdown:not([lt-prop-type=multiple]):not([lt-prop-type=multisearch]) lyte-drop-button {
+    color: #8d99a5;
+}
+
+.zccolorpickerwrap .showValue .lyteField, .zccolorpickerwrap lyte-drop-button {
+    border: 1px solid #3a3f5c;
+}
+
+.zccolorpickerwrap lyte-table:not(.infinitescroll) lyte-tr:hover, .zccolorpickerwrap .lyteColorPicker__nocolorbutton:hover, .zccolorpickerwrap .lyteColorPicker__navigatable:hover {
+    background: transparent;
+}
+
+.zccolorpickerwrap .opacityPreviewDiv__transparentbg, .previewDiv {
+    width: 35px;
+    height: 35px;
+}
+
+.zccolorpickerwrap .showValue {
+    width: calc(100% - 80px);
+}
+
+.zccolorpickerwrap .showValue .lyteInputBox input {
+    padding: 0;
+}
+
+.zccolorpickerwrap .lyteColorPicker--advanced {
+    width: 277px;
+}
+
+.zccolorpickerwrap .lyteCPSelectedColor::before {
+    border: none !important;
+}
+
+.zcanvas-value-container .backtoIcon, .zcanvas-value-container .lyteNavigator .lyteIconSingleBack, .zcanvas-value-container .lyteNavigator .lyteIconSingleFront, .zcanvas .criteria-yes {
+    background: none;
+    font-family: 'zcanvasicon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+}
+
+.zcanvas .criteria-yes {
+    display: inline-block;
+    width: unset;
+    vertical-align: top;
+}
+
+.zcanvas .criteria-yes::before {
+    content: "\e995";
+    transform: scale(.6);
+    display: inline-block;
+}
+
+.zcanvas-value-container .backtoIcon::before {
+    content: "\e991";
+}
+
+.zcanvas-value-container .lyteNavigator .lyteIconSingleBack::before {
+    content: "\e992";
+    background-image: none !important;
+    height: auto;
+    margin: 0;
+    width: auto;
+    padding: 0px 8px;
+}
+
+.zcanvas-value-container .lyteNavigator .lyteIconSingleFront::before {
+    content: "\e994";
+    background-image: none !important;
+    height: auto;
+    margin: 0;
+    width: auto;
+    padding: 0px 8px;
+}
+
+.zcanvas-value-container .lyteNavigator .lyteIconSingleBack, .zcanvas-value-container .lyteNavigator .lyteIconSingleFront {
+    width: auto;
+    height: auto;
+}
+
+.zcanvas-value-container crm-comment-information .commentSection {
+    border-bottom-width: 0px;
+}
+
+.zcanvas-value-container crm-comment-information .commentSection .commentText, .zcanvas-value-container crm-comment-information .commentedBy {
+    background: inherit;
+    color: inherit;
+    border: none;
+}
+
+/* NEW UI */
+
+.zcfieldConnectLine {
+    width: 10px;
+    height: calc(100% - 25px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    margin-left: 12px;
+    border-left: 1px dashed #494f63;
+    border-bottom: 1px dashed #494f63;
+}
+
+#zcanvas-relatedlist>.zcanvas-field:after, #zcanvas-system>.zcanvas-field:after, #zcanvas-zia>.zcanvas-field:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 12px solid #5466C9;
+    border-right: 12px solid transparent;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#zcanvas-action>.zcanvas-field {
+    padding: 7px 15px !important;
+    border: 1px solid #5f647f;
+    margin: 0px 4px 8px;
+    flex-grow: 1;
+    text-align: center;
+}
+
+#zcanvas-layouts {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#zcanvas-layouts>.zcanvas-field {
+    background: transparent !important;
+    padding: 0 !important;
+    width: 50%;
+    border: 0;
+}
+
+.canvas-insert-container .canvas-field-menu-container {
+    padding: 0px 10px 60px;
+}
+
+.canvas-insert-container .canvas-field-menu-container .zcanvas-menu-heading {
+    display: none;
+}
+
+.canvas-insert-container .canvas-field-menu-container .zcanvas-on-menu:hover .zclisticon {
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, .3);
+}
+
+.zclisticon {
+    padding: 8px;
+    box-sizing: inherit;
+    width: 100px;
+}
+
+.zcl_container {
+    width: 100px;
+    height: 100px;
+    background: #393f55;
+    border-radius: 5px;
+}
+
+.zcl_title {
+    text-align: center;
+    padding-top: 5px;
+    font-size: 12px;
+}
+
+.zcl_container::before {
+    content: '';
+    background: url(../../assets/images/crm-canvas.svg) no-repeat;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+}
+
+.zcsectionlayouticon::before {
+    background-position: -219px -272px;
+    width: 66px;
+    height: 41px;
+}
+
+.zctablayouticon::before {
+    background-position: -301px -271px;
+    width: 75px;
+    height: 40px;
+}
+
+.zctablelayouticon:before {
+    background-position: -398px -272px;
+    width: 67px;
+    height: 40px;
+}
+
+.zctextlayouticon:before {
+    background-position: -403px -320px;
+    width: 61px;
+    height: 55px;
+}
+
+.zciconlayouticon:before {
+    background-position: -226px -327px;
+    width: 43px;
+    height: 43px;
+}
+
+.zclinelayouticon:before {
+    background-position: -307px -329px;
+    width: 44px;
+    height: 43px;
+}
+
+.zcbdrbox .zcanvas-value-container {
+    width: 100%;
+    height: 100%;
+    border: none;
+    overflow: unset;
+    outline-offset: 0px;
+}
+
+.zcbdrbox .zcanvas-value-container .Scoringrulediv {
+    right: 0px;
+}
+
+.zc-component-overflow {
+    overflow: auto;
+}
+
+.zcanvas-context-container .canvas_field_search {
+    margin: 0;
+    background: #282c34;
+    border: 1px solid #42485d !important;
+    width: 100%;
+}
+
+.zcanvas-context-container .canvas_field_search .canvas_search_icon {
+    background: transparent;
+    height: 100%;
+}
+
+.canvas_field_search input::-webkit-input-placeholder {
+    color: #757a8d;
+}
+
+.canvas-available-tools {
+    /* overflow: hidden; */
+    overflow: scroll;
+    height: 100%;
+    padding-bottom: 0px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.canvas-tool-name-small {
+    color: #9799A5;
+    font-size: 10px;
+    margin-top: 6px;
+}
+
+.bgimageprops .zcanvas-tools-list-select {
+    display: flex;
+    margin: 10px 0px;
+    width: 100%;
+}
+
+.bgimageprops .zcanvas-tools-list-select li {
+    color: #BABABA;
+    width: auto;
+    margin: 0;
+    padding: 5px 10px;
+    height: auto;
+    background: #292C3C;
+    border: 1px solid #383C50;
+    font-size: 12px;
+    white-space: nowrap;
+    border-radius: 0;
+    flex: 1;
+    cursor: pointer;
+}
+
+.bgimageprops .zcanvas-tools-list-select li.zcanvas-tools-list-selected {
+    background: #1A1D2C;
+}
+
+.canvas-border-style {
+    width: 75px;
+}
+
+.canvas-border-style .dropdown-container-list {
+    width: 75px;
+    padding: 4px;
+}
+
+.canvas-border-style .dropdown-container-list li {
+    padding: 4px;
+    border: none !important;
+}
+
+.canvas-border-style .zcanvas-tools-dropdown {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    padding-left: 4px;
+}
+
+.canvas-border-style .zcanvas-tools-dropdown .tool-selected-value {
+    width: 56px;
+}
+
+.canvas-border-style .zcanvas-tools-dropdown .tool-open-icon {
+    height: 24px;
+    margin-left: 4px;
+    margin-top: 3px;
+}
+
+.canvas-border-box, .canvas-multi-border, .canvas-box-single {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+.canvas-sub-tool-name {
+    color: #777A8D;
+    font-size: 12px;
+    position: relative;
+    top: -2px;
+    margin-left: 4px;
+}
+
+.canvas-tool-bb, .canvas-text-tool-border, .canvas-left-align {
+    border-bottom: 1px solid #383C50;
+}
+
+.canvas-no-gallery {
+    color: #DFEBFA;
+    font-size: 12px;
+    text-align: center;
+    padding: 30px;
+    display: block;
+}
+
+.zcanvasgallerylist, #zcanvas-action {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.zcanvasgallerylist li {
+    flex-grow: 1;
+}
+
+.canvas-context-tool {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.canvas-context-tool-container {
+    padding: 10px;
+    border-bottom: 1px solid #383C50;
+}
+
+.canvas-align-tool {
+    border: 1px solid #383c50;
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.canvas-left-align, .canvas-top-align {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.zcanvas-radius-tool {
+    width: 150px;
+    background: #FFF;
+    padding: 10px;
+    border-radius: 0px 5px 5px 0px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, .2);
+}
+
+.zc-rl-sub-selectable {
+    pointer-events: initial !important;
+}
+
+.zc_state_container {
+    display: flex;
+    height: 32px;
+}
+
+.zc_state_navicons {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 4px;
+    box-shadow: 0px 0px 1px 1px;
+}
+
+.zc_state_tool {
+    height: 32px;
+    background: #14161D;
+    display: flex;
+    margin-bottom: 5px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.zc_state_tool li {
+    color: #BABABA;
+    font-size: 12px;
+    margin: 0;
+    width: auto;
+    height: 100%;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 0;
+    display: block;
+    cursor: pointer;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+.zc_state_tool li.zcanvas-tools-list-selected {
+    background: #292C3C;
+    border-top: 2px solid #9DA5D1;
+    padding-top: 4px;
+    color: #FFFFFF;
+}
+
+.zc_mouse_states {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.zc_substate_tool {
+    border: 1px solid #50585f;
+    color: #FFF;
+    display: inline-flex;
+    border-radius: 40px;
+}
+
+.zc_substate_tool li {
+    width: auto;
+    font-size: 12px;
+    height: auto;
+    padding: 4px 8px;
+    margin: 0px;
+    cursor: pointer;
+}
+
+.zc_substate_tool li.zcanvas-tools-list-selected {
+    background: #22323f;
+    border-radius: 40px;
+    border: 1px solid #FFF;
+}
+
+.zcanvas-tools-dropdown .tool-open-icon {
+    margin-left: 3px;
+}
+
+#aligntool li, #uppercasetool li, #uppercasetooltab li {
+    margin: 0;
+    padding: 0;
+}
+
+#uppercasetool .zcanvas-tools-list-select, #uppercasetooltab .zcanvas-tools-list-select {
+    display: flex;
+    justify-content: space-between;
+    width: 70px;
+    align-items: center;
+}
+
+#aligntool .zcanvas-tools-list-select {
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.zc-remove-styletool {
+    margin-bottom: 0px !important;
+}
+
+.zctool-hidden {
+    background: #353849;
+}
+
+.zc_pB0 {
+    padding-bottom: 0px;
+}
+
+.zcanvas-context-header {
+    font-family: LatoSemibold;
+    font-size: 14px;
+    padding: 20px 25px 7px 20px;
+    text-transform: uppercase;
+    color: #8a96b6;
+}
+
+.zc_delete_column {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #fff;
+    position: absolute;
+    right: 10px;
+    border-radius: 50%;
+    background: #c9c1c1;
+    top: -10px;
+    cursor: pointer;
+    z-index: 2;
+    /*  display: none; */
+}
+
+.zc_delete_column::before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 2px;
+    background: red;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+/* Line tools */
+
+.zclayout.zcdivider.zc-hr-line .zc-divider-line {
+    border-top: 1px solid #000000;
+    height: 100%;
+    width: 100%;
+    border-bottom: 0px !important;
+    border-left: 0px !important;
+    border-right: 0px !important;
+}
+
+.zclayout.zcdivider.zc-hr-line {
+    min-height: 3px;
+    height: auto !important;
+}
+
+.zclayout.zcdivider.zc-vr-line .zc-divider-line {
+    border-left: 1px solid #000000;
+    height: 100%;
+    width: 100%;
+    border-bottom: 0px !important;
+    border-top: 0px !important;
+    border-right: 0px !important;
+}
+
+.zclayout.zcdivider.zc-vr-line {
+    min-width: 3px;
+    width: auto !important;
+}
+
+.zclayout.zcdivider .ui-resizable-w, .zclayout.zcdivider .ui-resizable-e {
+    top: 50% !important;
+    transform: translateX(-50%) !important;
+    right: -10px !important;
+}
+
+.zclayout.zcdivider .ui-resizable-n, .zclayout.zcdivider .ui-resizable-s {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+}
+
+body>.zcanvas-field .zcstatictext {
+    /* stylelint-disable-line selector-max-type*/
+    padding: 0 !important;
+}
+
+.zclayout.zcstatictext .ui-resizable-w, .zclayout.zcstatictext .ui-resizable-e {
+    top: 0% !important;
+    transform: translateX(-50%) !important;
+    right: -10px !important;
+    height: 100% !important;
+}
+
+.zcstatictext.zc_disabled {
+    width: auto !important;
+    min-width: 164px !important;
+    height: auto !important;
+}
+
+.zclayout.zcstatictext.zcautoupdate {
+    height: auto !important;
+}
+
+.zclayout.zcstatictext .ui-resizable-w {
+    left: 0 !important;
+}
+
+.zclayout.zcstatictext:focus-within {
+    outline: 1px dashed #1592E6 !important;
+    cursor: text;
+}
+
+.zc-depth-tool button {
+    background: #353849;
+    border: 1px solid transparent;
+    padding: 10px 45px;
+    outline: none;
+}
+
+.zc-closesearch-icon {
+    background-image: url(../../assets/images/svgicons.svg);
+    background-repeat: no-repeat;
+    background-position: -274px -2196px;
+    width: 11px;
+    height: 11px;
+    display: inline-block;
+    position: absolute;
+    top: 11px;
+    left: 8px;
+}
+
+.canvas-container .ps-scrollbar-y-rail {
+    right: 0 !important;
+    width: 5px !important;
+    background: rgb(40, 44, 60) !important;
+}
+
+.canvas-container .ps-scrollbar-y {
+    width: 5px !important;
+    background: rgb(127, 135, 169) !important;
+}
+
+.zcanvas-on-menu crm-zdesk-rl-label tr, .zcstatictext crm-zdesk-rl-label tr, .zcanvas-field-context crm-zdesk-rl-label tr {
+    height: auto !important;
+}
+
+.zctab-dropdown crm-zdesk-rl-label .relListHead, .zcanvas-field-context crm-zdesk-rl-label .relListHead, .zcanvas-on-menu crm-zdesk-rl-label .relListHead, .zcstatictext crm-zdesk-rl-label .relListHead, .zctab-dropdown crm-zsurvey-rl-label .relListHead, .zcanvas-field-context crm-zsurvey-rl-label .relListHead, .zcanvas-on-menu crm-zsurvey-rl-label .relListHead, .zcstatictext crm-zsurvey-rl-label .relListHead {
+    color: inherit !important;
+    padding: inherit !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+}
+
+.zcanvas-value-container crm-tag .zcnoprop {
+    color: inherit !important;
+}
+
+.zcstaticicon span {
+    display: block;
+}
+
+.zc-keymoment:focus {
+    background: #1a1c29 !important;
+    outline: none;
+}
+
+.zc-keymoment:hover {
+    background: #26293c !important;
+    outline: none;
+}
+
+.canvas-logo {
+    background: url(../../assets/images/canvas-white-logo.png) no-repeat;
+    width: 100%;
+    height: 100%;
+    transform: scale(0.5);
+    transform-origin: left;
+}
+
+.canvas-logo-container {
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 320px;
+    border-right: 1px solid #3a3d4c;
+    border-bottom: 1px solid #3a3d4c;
+}
+
+.canvas-header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex: 1;
+}
+
+.zc-insert-trow {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background: rgba(138, 136, 148, 0.5);
+    position: absolute;
+    left: calc(50% + 10px);
+    bottom: 3px;
+    cursor: pointer;
+    z-index: 3;
+    border-radius: 50%;
+    transform: translate(calc(-50% - 5px), 10px);
+    opacity: 0;
+}
+
+.zc-insert-trow::before {
+    content: '+';
+    position: relative;
+    top: -3px;
+    left: 4px;
+}
+
+.zc-depth-icon {
+    background-position: -349px -211px;
+    width: 19px;
+    height: 17px;
+    display: inline-block;
+    opacity: 0.8;
+}
+
+.zc-depth-icon-back {
+    background-position: -373px -211px;
+    width: 19px;
+    height: 17px;
+    display: inline-block;
+    opacity: 0.8;
+}
+
+.zc-tab-renamebtn button {
+    border: 1px solid rgba(67, 162, 235, 0.45) !important;
+    background: transparent;
+    color: #43a2eb;
+    font-size: 13px;
+    padding: 4px 13px;
+    border-radius: 4px;
+}
+
+#zcanvas_menu_insert .zcanvas-field {
+    font-size: 15px;
+}
+
+.canvas-border-tab .spaceicon.zc-tools-selected, .canvas-border-selectedbg {
+    background: #171921;
+}
+
+.canvas-border-tab .spaceicon.zc-tools-selected {
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+.canvas-border-selectedbg {
+    border-radius: 4px;
+}
+
+.zc-border-tool {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.zc-first-selected-element {
+    border-top-left-radius: 0px;
+}
+
+.zc-last-selected-element {
+    border-top-right-radius: 0px;
+}
+
+/* End of line tools */
+
+.zc-disabled-tool {
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.zcmenu-disable-item, .zcanvas-field.zcanvas-ignore {
+    opacity: 0.3;
+}
+
+.zc-non-valid-input {
+    border-color: #ff0000 !important;
+}
+
+.zcanvas-loading-component::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: #f4efef;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.zcanvas-loading-component::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background-image: url(static/images/crmAnalytics_images/analyticsLoader.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.7;
+    z-index: 4;
+}
+
+.zcanvas-loading-component .ui-resizable-handle, .zcanvas-ignore .ui-resizable-handle {
+    pointer-events: none;
+}
+
+.zcnopermissiondiv {
+    height: 100%;
+}
+
+.zcnopermission {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+/*Tab icon space*/
+
+.zctabicons {
+    margin-right: 10px;
+}
+
+.zctabicons.zctabnotext {
+    margin-right: 0px;
+}
+
+/** Default social height */
+
+.zcanvas-editor-outer crm-social-integ-outer-template .socInContain {
+    min-height: 400px;
+}
+
+/* image field in table */
+
+.zcanvas-editor-outer .zcimagefield .zcanvas-value-container, .zcanvas-editor-outer .zcfilefield .zcanvas-value-container {
+    height: inherit;
+    overflow: hidden;
+}
+
+.zcanvas-editor-outer .zc-table-cell crm-image-upload-detail, .zcanvas-editor-outer .zc-table-cell crm-image-upload-detail .detailsPageImagesList, .zcanvas-editor-outer .zc-table-cell crm-image-upload-detail .uploadedImageListDL {
+    height: inherit
+}
+
+.zcanvas-editor-outer .zc-table-cell crm-image-upload-detail .uploadedImageListDL {
+    flex-wrap: nowrap !important;
+}
+
+.zcanvas-editor-outer .zc-table-cell crm-image-upload-detail .imageGalleryListWrap {
+    margin: 0 7px 0 0;
+    height: calc(100% - 8px);
+    width: auto;
+    max-height: 64px !important
+}
+
+.zcanvas-editor-outer .zc-table-cell .zcanvas-value-container crm-image-upload-detail .imageGalleryListWrap img {
+    width: 100%;
+    height: inherit;
+    max-width: 64px !important;
+    max-height: 64px !important
+}
+
+.zcanvas-editor-outer .zc-table-cell crm-image-upload-detail .imageGalleryListWrap:after {
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    max-width: 62px;
+    max-height: 62px
+}
+
+.zcanvas-editor-outer .zcanvas-value-container crm-image-upload-detail .uploadedImageListDL {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.zcanvas-editor-outer .zcanvas-value-container crm-image-upload-detail .uploadedImageListDL li {
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+#previewcanvas .zclayout-table .zcanvas-field .zcanvas-data-node .zcanvas-inner-component:not(.zcanvas-non-selectable), #detailcanvascontainer .zclayout-table .zcanvas-field .zcanvas-data-node .zcanvas-inner-component:not(.zcanvas-non-selectable) {
+    white-space: normal;
+}
+
+.canvascolorcontainer[style*="background-color: rgba(0, 0, 0, 0)"]::before, .canvascolorcontainer[style*="background-color: rgba(255, 255, 255, 0)"]::before, .canvascolorcontainer[style*="background-color: transparent"]::before {
+    content: '';
+    position: absolute;
+    color: #FFF;
+    text-align: center;
+    background: url(../../assets/images/crm-canvas.svg) no-repeat -57px -385px;
+    width: 30px;
+    height: 23px;
+    left: 0px;
+    top: 0px;
+}
+
+/* Notes override , Segmentation override */
+
+.zcanvas #noteMoreFiles>.dz-preview>.dz-details {
+    display: inline-flex;
+    align-items: center;
+    width: auto;
+    padding-right: 10px;
+}
+
+.zcanvas .noteMoreFiles>.dz-preview div .dz-filename {
+    max-width: unset;
+    overflow: hidden !important;
+}
+
+.zcanvas #noteMoreFiles>.dz-preview div .dz-size {
+    flex-grow: 1;
+    white-space: nowrap;
+}
+
+.zcanvas .rfm-entityListCont {
+    width: inherit;
+}
+
+.zcanvas #segmentation {
+    min-width: 900px;
+}
+
+.zcanvas crm-detail-view-blueprint-action .pb_processDiv {
+    margin-left: 0;
+    min-width: 750px;
+}
+
+/* Table customization fix */
+
+.canvas-tool-subcontext .canvas-tool-container {
+    padding: 0px;
+    border-bottom: none;
+}
+
+#canvas-context-styles .zcanvas-menu-heading {
+    display: block;
+}
+
+/** Contextual Cursors */
+
+.zcanvas-editor-outer .ui-draggable:not(.ui-draggable-disabled), .zcanvas-editor-outer .ui-draggable:not(.ui-draggable-disabled) .ui-draggable-disabled, .zcanvas-editor-outer .zctablayout.ui-draggable:not(.ui-draggable-disabled) .zc-tab-container, .zcanvas-editor-outer .zctablayout.ui-draggable:not(.ui-draggable-disabled) .zc-tablist-container {
+    cursor: grab;
+}
+
+.zcanvas-editor-outer .ui-draggable.ui-draggable-dragging {
+    cursor: grabbing !important;
+}
+
+/** Auto Resize */
+
+.zcanvas-editor-outer .zctablayout .zcautoratio {
+    min-width: initial !important;
+    min-height: initial !important;
+    max-width: initial !important;
+    max-height: initial !important;
+}
+
+.zcanvas-editor-outer .zctablayout {
+    min-height: 200px !important;
+    min-width: 200px !important;
+}
+
+/* help doc and video */
+
+.zchelpicon {
+    width: 20px;
+    height: 20px;
+    background-position: -113px -236px;
+    display: inline-block;
+}
+
+.zcmore {
+    width: 20px;
+    height: 6px;
+    background-position: -317px -392px;
+    display: inline-block;
+}
+
+.zchelpvideoicon {
+    width: 22px;
+    height: 14px;
+    background-position: -175px -239px;
+    display: inline-block;
+}
+
+#zcanvas-editor-outer .zcanvas-value-container lyte-button button:disabled {
+    opacity: 1 !important;
+}
+
+/* More button customization */
+
+.zc-only-icon .zcanvas-value-container {
+    display: none !important;
+}
+
+/** iframeheight for fixed */
+
+.zcanvas crm-custom-rl>div>iframe {
+    height: 500px;
+}
+
+.zcanvas-static-editor[data-fixed-y="true"] .zc-rl-outcontainer, .zcanvas-static-editor[fixed="true"] .zc-rl-outcontainer, .zcanvas-static-editor[data-fixed-y="true"] .zc-rl-outcontainer crm-custom-rl, .zcanvas-static-editor[fixed="true"] .zc-rl-outcontainer crm-custom-rl, .zcanvas-static-editor[data-fixed-y="true"] .zc-rl-outcontainer crm-custom-rl>div, .zcanvas-static-editor[fixed="true"] .zc-rl-outcontainer crm-custom-rl>div, .zcanvas-static-editor[data-fixed-y="true"] .zc-rl-outcontainer crm-custom-rl>div>iframe, .zcanvas-static-editor[fixed="true"] .zc-rl-outcontainer crm-custom-rl>div>iframe, .zcfixedrlcontainer crm-custom-rl, .zcfixedrlcontainer crm-custom-rl>div, .zcfixedrlcontainer crm-custom-rl>div>iframe {
+    display: block;
+    height: inherit;
+}
+
+.zcanvas-value-container .zcImageUpload {
+    padding: 0 !important;
+    width: auto !important;
+}
+
+.canvas-page-container .canvas_field_search {
+    box-sizing: border-box !important;
+}
+
+.zcbottomcontextmenu {
+    display: flex !important;
+    flex-direction: column-reverse;
+}
+
+.zccontextclose {
+    overflow: hidden;
+}
+
+/* Criteria Editor */
+
+.canvas-criteria-name {
+    margin: 5px;
+    color: #FFF;
+    padding: 8px;
+    border: 1px solid #4e5060;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.canvas-criteria-name:hover .svgIcons, .zc-custom-states.zcanvas-tools-list-selected .criteriamoreoptions {
+    display: inline-block;
+}
+
+.canvas-add-btn {
+    background-position: -52px -237px;
+    width: 13px;
+    height: 13px;
+    display: inline-block;
+}
+
+.zcaddstate.lyteMenuSelected {
+    background-color: #313548;
+}
+
+.zc-custom-states .deletetabicon {
+    position: relative;
+    right: initial;
+    margin-left: 5px;
+    transform: translateY(-50%) scale(0.8);
+    transform-origin: top;
+}
+
+.crm-criterialist-menu .lytePopover {
+    background: #303448;
+    color: #fff;
+    position: absolute;
+    box-shadow: 4px 4px 12px 3px rgba(0, 0, 0, 0.25);
+    border: none;
+    border-radius: 4px;
+    min-width: 250px;
+}
+
+.crm-criterialist-menu .lytePopoverArrowIcon {
+    background: #303548;
+    box-shadow: -1px -1px 0 0 #303548;
+}
+
+.canvas-criteria-menuoptions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.crm-criterialist-menu .lytePopover .lyteSecondary {
+    background: transparent;
+    border: none;
+    font-size: 1.4rem;
+}
+
+.crm-criterialist-menu lyte-popover-content .zc-criterialist-menuitem {
+    padding: 6px 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.crm-criterialist-menu lyte-popover-content .zc-criterialist-menuitem lyte-checkbox {
+    color: #ffffff;
+    width: 100%;
+    display: inline-block;
+}
+
+.crm-criterialist-menu lyte-popover-content .zc-criterialist-menuitem .lyteCheckDisabled {
+    opacity: 0.7;
+}
+
+.crm-criterialist-menu lyte-popover-header .zcrulecreatebtn {
+    width: 100% !important;
+}
+
+.crm-criterialist-menu lyte-popover-content .zc-criterialist-menuitem lyte-checkbox span {
+    color: #FFFFFF !important;
+    display: initial;
+}
+
+.crm-criterialist-menu lyte-popover-content .zc-criterialist-menuitem:not(.createcriteriaactionpop):hover {
+    background: #26293c !important
+}
+
+.zc_apply_condition lyte-checkbox, .zc_apply_condition lyte-checkbox:hover span {
+    color: #6c7692 !important;
+}
+
+.canvas_crtiteria_infoview_tooltip {
+    border-radius: 5px;
+    padding: 10px;
+    background: #303548;
+    border: none;
+}
+
+.canvas_crtiteria_infoview_tooltip lyte-menu-body {
+    border: none;
+    background: transparent;
+}
+
+.canvas_crtiteria_infoview_tooltip .lyteArrow {
+    background: #303548;
+    box-shadow: -1px -1px 0 0 #303548 !important;
+}
+
+.canvas_crtiteria_infoview_editor, .canvas_crtiteria_combination_options lyte-menu-body {
+    background: #303548;
+    color: #fff;
+    border: none;
+}
+
+.canvas_crtiteria_combination_options lyte-menu-body lyte-menu-item:hover {
+    background: #242836;
+}
+
+.canvas_crtiteria_infoview_editor .criteriaTd .color_3 {
+    color: #FFF;
+}
+
+.canvas_crtiteria_infoview_editor .criteriaTd .whiteBg {
+    background: transparent !important;
+}
+
+.zc-criterialist-selection .createcriteriaactionpop {
+    justify-content: center !important;
+    background: transparent !important;
+    color: #3c98dd !important;
+}
+
+/* Clone */
+
+.zcanvas_overlay_component {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 4;
+}
+
+.zcanvas_overlay_action_container {
+    position: relative;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.zcanvas_overlay_action {
+    padding: 8px 10px;
+    margin-left: 10px;
+    box-shadow: 4px 4px 12px 3px rgba(0, 0, 0, 0.25);
+    border: 1px solid #3a3f5c;
+    background: #303448;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/** Common css **/
+
+.w15px {
+    width: 15px !important;
+}
+
+/* $Id$ */
+
+.canvas-vc-errtag {
+    font-size: 16px;
+    color: red;
+    margin-top: -25px;
+}
+
+.canvas-vc-errornote {
+    border: 2px solid red;
+    position: absolute;
+    z-index: 1;
+}
+
+.canceldeletealert .alertPopup {
+    max-width: 700px;
+    padding: 20px 40px 25px 20px;
+    border: none;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.canceldeletealert .alertContent {
+    padding-left: 10px;
+}
+
+.canceldeletealert .alertPrimaryMsg {
+    font-size: 1.8rem;
+}
+
+.canceldeletealert .alertSecondaryMsg {
+    color: #676767;
+    padding-top: 10px;
+    font-size: 1.5rem;
+}
+
+.canceldeletealert .alertFooter {
+    padding-left: 50px;
+}
+
+.canceldeletealert .alertFooter lyte-button {
+    border-radius: 4px;
+}
+
+.canceldeletealert .alertFooter lyte-button .lyteFailure {
+    background: #ec4844;
+}
+
+.canceldeletealert .alertFooter lyte-button button {
+    padding: 10px 20px;
+}
+
+.manageruleicon {
+    background-position: -106px -390px;
+    width: 13px;
+    height: 14px;
+}
+
+.managerulepencil {
+    background-position: -129px -390px;
+    width: 12px;
+    height: 14px;
+}
+
+.canvas-popsetting-icon:hover {
+    background: #454A61;
+}
+
+.zc-criterialist-menuitem .ico-info-filled {
+    opacity: 0.6;
+}
+
+.zc-criterialist-menuitem .ico-info-filled:hover {
+    opacity: 0.8;
+}
+
+.canvas_popup_search_container .canvas_popup_search:focus-within {
+    box-shadow: 0px 0px 0px 1px rgba(0, 145, 255, .38);
+}
+
+.canvas-criteria-menuoptions button.lyteSecondary {
+    border: 1px solid transparent !important;
+}
+
+.canvas-criteria-menuoptions button.lyteSecondary:hover {
+    border: 1px solid #556473 !important;
+}
+
+.crm-criterialist-menu lyte-popover-content .zc-criterialist-menuitem:hover {
+    background-color: #242836b8;
+}
+
+.canvasrulemanagelink {
+    color: #42a2eb;
+}
+
+.zc-criterialist-menuitem .lyteCheckBoxPrimary::before {
+    background: url(../../assets/images/crm-canvas.svg) -290px -216px no-repeat;
+    width: 15px;
+    height: 15px;
+    display: inline-block
+}
+
+.zc-criterialist-menuitem lyte-checkbox:hover .lyteCheckBoxPrimary::before {
+    background-position: -311px -198px
+}
+
+.zc-criterialist-menuitem lyte-checkbox input[type=checkbox]:checked+.lyteCheckBoxPrimary::before {
+    background-position: -311px -216px;
+    width: 15px;
+}
+
+.canvas-customstate-tabname {
+    max-width: 115px;
+}
+
+.canvas_rulelist_container {
+    background: #1e222b;
+    border: 1px solid #282a37;
+    color: #aeafb2;
+}
+
+.canvas_rulelist_container .canvas_rulelist_item {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 10px;
+}
+
+.canvas_rulelist_container .canvas_rulelist_item:hover {
+    background: #2a2c3c;
+    cursor: default;
+}
+
+.canvas_rulelist_item_name {
+    flex: 1;
+}
+
+.canvas_rulelist_container .canvas_rulelist_item:hover .managerulepencil {
+    visibility: visible !important;
+}
+
+.canvas-tools-container .canvas-tool-container:hover {
+    background: #2E3040;
+}
+
+.canvas-tools-container .canvas-tool-container:focus-within {
+    background: #222430;
+}
+
+.canvas-criteria-emptytext {
+    font-size: 12px;
+    color: #777A8D;
+    max-width: 250px;
+    padding: 10px;
+    line-height: 1.4;
+    font-family: var(--crm-font-regular);
+}
+
+/*  */
+
+.canvas-oauth-container-field {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.canvas-oauth-label {
+    width: 150px;
+    font-size: 12px;
+}
+
+.canvas-oauth-createbtn {}
+
+/*  */
+
+.canvas-builder-area-container {
+    height: calc(100% - 240px);
+}
+
+.canvas-builder-no-advanced {
+    height: 100% !important;
+}
+
+.canvas-builder-data-area-container {
+    height: 240px;
+    background: #282b3c;
+}
+
+.canvas-querydata-area {
+    display: flex;
+    height: 100%;
+}
+
+.canvas-querydata-queryies {
+    width: 200px;
+}
+
+.canvas-querylist {
+    color: #fff;
+    margin: 0px;
+}
+
+.canvas-querylist li, .canvas-querydata-area button {
+    padding: 8px;
+    border: 1px solid #3a656b;
+    border-radius: 5px;
+    margin: 3px 0px;
+    outline: none;
+    cursor: pointer;
+}
+
+.canvas-querydata-querydetail {
+    flex: 1;
+    overflow: auto;
+}
+
+.canvas-query-api, .canvas-query-js {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.canvas-query-api input, .canvas-query-js textarea, .canvas-query-headers input, .canvasqueryinput {
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+    font-size: 13px;
+    padding-left: 5px;
+    box-sizing: border-box;
+}
+
+.canvas-query-js textarea, .canvas-querybody textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.canvas-selected-query {
+    background: #3b3f58;
+}
+
+#zcanvas_menu_insert .zcanvas-menu-heading {
+    display: none;
+}
+
+.canvas-query-headers {
+    display: flex;
+    padding: 0px 8px;
+    justify-content: space-between;
+}
+
+.canvas-query-headers input {
+    width: 50%;
+    margin: 0px 4px 4px;
+}
+
+.canvas-headeraddbtn {
+    margin-left: 8px !important;
+}
+
+.canvas-query-api-method {
+    background: #fff;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.canvas-query-api-method lyte-drop-button {
+    border-radius: 5px;
+}
+
+.canvas-querybody {
+    padding: 8px;
+}
+
+/*  */
+
+<style>.canvas-iconpicker-icontype-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.canvas-iconpicker-search-container .canvas_field_search {
+    margin-bottom: 0px !important;
+}
+
+.canvas-iconpicker-icontype-selection-container .lyteRadioLabel, .canvas-iconpicker-icontype-selection-container .lyteRadioLabel:hover, .canvas-iconpicker-icontype-selection-container lyte-radiobutton input[type=radio]:focus~.lyteRadioLabel, lyte-radiobutton label:hover .lyteRadioLabel {
+    color: #fff;
+}
+
+.canvas-iconpicker-icontype-selection-container .lyteRadioLayer .lyteRadioCheck {
+    background: #fff;
+}
+
+.canvas-iconpicker-icontype-selection-container .lyteRadioLayer {
+    background-color: #fff;
+    border: 3px solid #92969f !important;
+    box-sizing: border-box;
+    margin-right: 0;
+}
+
+.canvas-iconpicker-icontype-selection-container lyte-radiobutton input[type=radio]:checked+.lyteRadioLayer {
+    border: 3px solid #328eed !important;
+}
+
+crm-canvas-icon-picker .zcicondropdpwn {
+    z-index: 19;
+    height: auto;
+}
+
+.canvas-iconpicker-list-container {
+    width: 100%;
+    height: 220px;
+    overflow: auto;
+}
+
+#canvasview {
+    height: calc(100vh - 93px);
+    max-height: 100% !important;
+}
+
+#canvasview>.zc-page-component-outer {
+    min-height: 100%;
+}
+
+.zc-output-container {
+    display: none;
+}

@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=11;IE12;IE=edge" />
+    <title>Canvas Mobile</title>
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+
+
+
+    <link rel="stylesheet" href="../../plugins/lib1/lib1.css" />
+
+    <link rel="stylesheet" href="../../common/css/canvas/zcanvas.css" />
+    <link rel="stylesheet" href="../../common/css/canvas/zcanvasicons.css" />
+    <link rel="stylesheet" href="../../common/css/canvas/canvas-base.css" />
+
+    <!-- Lodash -->
+    <script defer src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+
+    <!-- JQuery -->
+    <script defer src="../../plugins/jquery/jquery.js"></script>
+
+    <!-- JQuery UI -->
+    <script defer src="../../plugins/jq-ui/jquery-ui.min.js"></script>
+    <script defer src="../../plugins/jq-ui/jquery-ui.min.css"></script>
+
+    <script defer src="../../common/js/utils/utils.js"></script>
+
+    <script defer src="../../common/js/i18n/i18n.js"></script>
+    <script defer src="../../common/js/i18n/i18n1.js"></script>
+    <script defer src="../../common/js/i18n/i18n2.js"></script>
+
+    <!-- Canvas plugin -->
+    <script defer src="../../common/js/canvas/zcanvas-editor.js"></script>
+    <link rel="stylesheet" href="mobile-index.css">
+
+
+
+    <!-- ZOHO component -->
+    <link rel="stylesheet" href="../../plugins/zoho-components/dist/css/zohocomponents.css" />
+    <script defer src="../../plugins/zoho-components/dist/js/zohocomponents.js"></script>
+
+    <!-- Canvas builder Data -->
+    <script defer src="../../common/js/data/zc-data.js"></script>
+
+    <!-- Builder Configuration -->
+    <script defer src="./canvas-config-mobile.js"></script>
+
+    <script defer src="../../common/js/app/common-config.js"></script>
+
+</head>
+
+<body>
+    <div id="outlet">
+        <div>
+            <div class="canvas-container">
+                <div class="canvas-top-container">
+                    <div class="canvas-logo-container">
+                        <div class="canvas-logo mL20"> </div>
+                    </div>
+                    <div class="canvas-header-top">
+                        <div class="dIB pL12"> <span data-zcqa="canvas-detail-tool-undo" class="cP canvas-tool"
+                                lt-prop-title="Undo" lt-prop-tooltip-config="{&quot;position&quot; : &quot;top&quot;}"
+                                onclick="undoRedo('1')"> <span class="canvasicon zcundo"></span> </span>
+                            <span data-zcqa="canvas-detail-tool-redo" class="cP canvas-tool" lt-prop-title="Redo"
+                                lt-prop-tooltip-config="{&quot;position&quot; : &quot;top&quot;}"
+                                onclick="undoRedo('2')"> <span class="canvasicon zcredo"></span> </span>
+                        </div>
+                        <div class="canvas-status dIB">
+                            <!-- <span class="canvas-tool" data-zcqa="canvas-detail-preview"
+                                click="canvas-builder => toggleadvanced()"> <span class="cP">Advanced</span>
+                            </span> -->
+                            <span class="canvas-tool dNImp" data-zcqa="canvas-detail-import" lt-prop-title="Import"
+                                lt-prop-tooltip-config="{&quot;position&quot; : &quot;top&quot;}"
+                                click="canvas-builder => import()"> <span class="icon-Icon_Downarrow"></span> </span>
+                            <span class="canvas-tool cP" id="previewIcon" onclick="previewview()"> <span
+                                    class="canvasicon zcpreview"></span>
+                            </span> <span class="canvas-tool cP" data-zcqa="canvas-detail-screensize"
+                                lt-prop-title="Full Screen"
+                                lt-prop-tooltip-config="{&quot;position&quot; : &quot;top&quot;}"
+                                onclick="fullscreen()"> <span class="canvasicon zcfullscreen"
+                                    id="canvasfullscreen"></span> </span> <span class="zcsavesection "> <input
+                                    data-zcqa="canvas-detail-canvasname" class="zc-namefield mR5 italic"
+                                    placeholder="Enter Canvas name" type="text" name="cavasname" maxlength="50"
+                                    id="canvasname" keyup="canvas-builder => enterToSave()"> <button
+                                    data-zcqa="canvas-detail-save" class="btn_small primarybtn" id="saveViewBtn"
+                                    onclick="saveCanvas('mobile')">Save</button> <button data-zcqa="canvas-detail-close"
+                                    class="btn_small newgraybtn" id="closebtn"
+                                    onclick="window.close()">Close</button> </span>
+                            <div id="copypastetool" class="dNImp"> <button id="zccopy" class="ungroupbtn"
+                                    click="canvas-builder => copystyle('copy')"></button> <button id="zcpaste"
+                                    class="ungroupbtn" click="canvas-builder => copystyle('paste')"></button> <button
+                                    id="copyrl" class="ungroupbtn"
+                                    click="canvas-builder => copystyle('copyrl')"></button> <button id="pasterl"
+                                    class="ungroupbtn" click="canvas-builder => copystyle('pasterl')"></button> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="canvas-editor-container">
+                    <div class="canvas-sidebar">
+                        <div data-zcqa="canvas-detail-sidebar-data"
+                            class="canvas-sidebar-item zcfieldsidebar zc-selected-sidebar"
+                            onclick="switchsidebar('canvas-menu-container',this)"> <span
+                                class="canvasicon zc_field_icon"></span> <span
+                                class="canvas-sidebar-item-name">Data</span> </div>
+                        <div data-zcqa="canvas-detail-sidebar-elements" class="canvas-sidebar-item zclayoutsidebar"
+                            onclick="switchsidebar('canvas-insert-container',this)"> <span
+                                class="canvasicon zc_layout_icon"></span> <span
+                                class="canvas-sidebar-item-name">Elements</span> </div>
+                        <div data-zcqa="canvas-detail-sidebar-style"
+                            class="canvas-sidebar-item zcstylesideebar canvas-sidebar-item-style"
+                            onclick="switchsidebar('canvas-tools-container',this)"> <span
+                                class="canvasicon zc_tools_icon"></span> <span
+                                class="canvas-sidebar-item-name">Style</span> </div>
+                        <div class="canvas-sidebar-bottom">
+                            <div class="canvas-sidebar-hide-icon p15" click="canvas-builder => openhelp()"> <span
+                                    class="zchelpicon canvas-sidebar-btm-icon canvasicon dIB"></span> </div>
+                            <div class="canvas-sidebar-hide-icon p15" click="canvas-builder => openvideo()"> <span
+                                    class="zchelpvideoicon canvas-sidebar-btm-icon canvasicon dIB"></span> </div>
+                            <div data-zcqa="canvas-detail-hidesidebar" class="canvas-sidebar-hide-icon p15"
+                                click="canvas-builder => togglehidebar()"> <span
+                                    class="canvasicon canvas-sidebar-btm-icon zc-hidesidebar-icon"></span> </div>
+                        </div>
+                    </div>
+                    <div class="canvas-menu-container canvas-selected-sidebar">
+                        <div class="canvas_field_search searchel" id="sidebar_search"> <input
+                                data-zcqa="canvas-detail-sidebar-search" placeholder="Search" type="text"
+                                oninput="zutils.search(this)" id="sidemenuSearchInput" autocomplete="off"
+                                keydown="canvas-builder => canvasScrollMenu()"> <span class="dIB pR canvas_search_icon">
+                                <span class="zc_searchIcon pA"></span> <span class="zc-closesearch-icon zc-search-hide"
+                                    click="canvas-builder => menuSearchClear()"></span> </span> </div>
+                        <div id="canvas_scroll_menu" class="canvas-field-menu-container">
+                            <div id="zcanvas_menu"></div>
+                            <!-- <div id="sidebarnomatch" data-search-source="#sidemenuSearchInput">No results match</div>
+                            <div id="canvasaddfield" class="aligncenter"><button class="primarybtn btn_small"
+                                    click="canvas-builder => addcanvasfields()">Add Canvas Fields</button></div> -->
+                        </div>
+                    </div>
+                    <div class="canvas-gallery-container">
+                        <div class="canvas-tool-typename"> <span class="canvas-tool-typetext bold mL0">Page</span>
+                        </div>
+                        <div class="canvas-available-gallery">
+                            <div id="gallerycontainer">
+                                <div class="canvas-gallery-nogallery"> <span class="canvas-no-gallery canvas-gallery">No
+                                        Gallery Found</span> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="canvas-insert-container">
+                        <div class="canvas-field-menu-container">
+                            <div id="zcanvas_menu_insert"></div>
+                        </div>
+                    </div>
+                    <div class="canvas-criteria-container">
+                        <crm-canvas-criteria oncriteriasave="" criteriashow="" frombuilder="true" modules="[]">
+                        </crm-canvas-criteria>
+                        <lyte-alert lt-prop-button-position="left" lt-prop-wrapper-class="canceldeletealert"
+                            lt-prop-top="0px" id="removecriteriapop" lt-prop-show="" lt-prop-type="confirm"
+                            lt-prop-primary-message="Remove Conditional Styling tab"
+                            lt-prop-secondary-message="Are you sure you want to remove this conditional styling tab?"
+                            lt-prop-buttons="[{&quot;type&quot;:&quot;accept&quot;,&quot;text&quot;:&quot;Remove&quot;,&quot;appearance&quot;:&quot;failure&quot;},{&quot;type&quot;:&quot;reject&quot;,&quot;text&quot;:&quot;Cancel&quot;}]"
+                            on-accept=""></lyte-alert>
+                        <lyte-alert lt-prop-button-position="right" lt-prop-wrapper-class="choosetemplate"
+                            lt-prop-top="0px" id="chooseTemplate"
+                            lt-prop-primary-message="Do you want to leave this page?"
+                            lt-prop-secondary-message="The current page will not be saved." lt-prop-type="warning"
+                            lt-prop-buttons="[{&quot;type&quot;:&quot;accept&quot;,&quot;text&quot;:&quot;Proceed&quot;,&quot;appearance&quot;:&quot;failure&quot;},{&quot;type&quot;:&quot;reject&quot;,&quot;text&quot;:&quot;Cancel&quot;}]"
+                            on-accept=""></lyte-alert>
+                    </div>
+                    <div class="canvas-tools-container">
+                        <div class="canvas-tool-typename"> <span class="canvas-tool-typetext bold mL0">Page</span>
+                            <!-- <div lt-prop-title="Add conditional styling tab" data-zcqa="canvas-detail-stateassociate"
+                                class="zc-custom-states zcaddstate wAuto cP "
+                                click="canvas-builder => opencrierialist()" style="display: block;"><span
+                                    class="canvasicon canvas-add-btn"></span>
+                            </div> -->
+                        </div>
+                        <div class="zc_state_container dNImp ">
+                            <ul class="zcanvas-tools-list-select zc_state_tool">
+                                <li data-zcqa="canvas-detail-toolstate-default" class="zcanvas-tools-list-selected"
+                                    id="zc_state_default" click="canvas-builder => switchstate('default')">Default</li>
+                                <li lt-prop-title="Add conditional styling tab" data-zcqa="canvas-detail-stateassociate"
+                                    class="zc-custom-states zcaddstate wAuto pT8 "
+                                    click="canvas-builder => opencrierialist()" style="display: list-item;"><span
+                                        class="canvasicon canvas-add-btn"></span></li>
+                            </ul>
+                            <lyte-popover lt-prop-max-height="400px" lt-prop-header-padding="0px"
+                                lt-prop-content-padding="0px 15px" lt-prop-footer-padding="15px 15px"
+                                lt-prop-show-close-button="false" id="zc-criterialist-menu" lt-prop-callout="true"
+                                lt-prop-wrapper-class="crm-criterialist-menu" lt-prop-origin-elem=".zcaddstate"
+                                lyte-rendered=""> <template is="registerYield" yield-name="popover"> <template is="if"
+                                        value="{{isNoRuleAvail(criterias,defaultModuleapiname,selectedModuleapiname)}}"><template
+                                            case="true">
+                                            <lyte-popover-header>
+                                                <div class="pL15 pR15 pT15 pB10">
+                                                    <lyte-button class="w100p" lt-prop-class="zcrulecreatebtn"
+                                                        lt-prop-appearance="primary" data-zcqa="new_Canvas_Rule"
+                                                        click="canvas-builder => addcriteriapop(,true)"> <template
+                                                            is="registerYield" yield-name="text">
+                                                            {{getI18n('crm.canvas.rule.create')}} </template>
+                                                    </lyte-button>
+                                                </div>
+                                                <div class="canvas_popup_setup_container">
+                                                    <div class="f14 mB10 cola7 crm-font-regular">
+                                                        {{getI18n('crm.canvas.rule.title')}}</div>
+                                                    <div class="canvas_popup_search_container"> </div>
+                                                </div>
+                                            </lyte-popover-header>
+                                            <lyte-popover-content class="zc-criterialist-selection pL15 pR15"> <template
+                                                    is="if"
+                                                    value="{{getCanvasRuleForModule(criterias,defaultModuleapiname)}}"><template
+                                                        case="true">
+                                                        <div
+                                                            class="canvas-tool-name bold uppercase pL5 pT5 pT10 zcriteria-title">
+                                                            {{getModulenameByApiname(defaultModuleapiname)}} </div>
+                                                    </template></template> <template is="for" items="{{criterias}}"
+                                                    item="item" index="index"> <template is="if"
+                                                        value="{{expHandlers(expHandlers(item.module.api_name,'==',defaultModuleapiname),'&amp;&amp;',expHandlers(item.combined,'!'))}}"><template
+                                                            case="true">
+                                                            <div class="zc-criteria-item"> <span
+                                                                    class="oH userPic newUserPic mw200 rpdisableReorder"
+                                                                    lt-prop-tooltip-config="{&quot;position&quot;:&quot;right&quot;}"
+                                                                    lt-prop-title="{{if(expHandlers(expHandlers(expHandlers(criteriatooltipid,'!==',item.zcid),'&amp;&amp;',expHandlers(array_contains(combinedcriterias,item),'!')),'&amp;&amp;',expHandlers(combinedcriterias.length,'>=',5)),getI18n('crm.canvas.rules.component.limit',5),if(expHandlers(expHandlers(expHandlers(item.module.api_name,'==',selectedModuleapiname),'&amp;&amp;',expHandlers(array_contains(relatedModuleCriterias,item),'!')),'&amp;&amp;',expHandlers(relatedModuleCriterias.length,'>=',5)),getI18n('crm.canvas.rules.component.relatedlist.limit',5),''))}}"
+                                                                    lt-prop-tooltip-class="alignleft rpDesTooltip">
+                                                                    <div class="zc-criterialist-menuitem pR"
+                                                                        id="zc-criterialist-menuitem-{{item.id}}"
+                                                                        data-value="{{item.zcid}}">
+                                                                        <lyte-checkbox
+                                                                            id="compcriteriacheckbox{{item.zcid}}"
+                                                                            on-checked="{{method(&quot;combinecriteriachange&quot;,false,item,true)}}"
+                                                                            on-unchecked="{{method(&quot;combinecriteriachange&quot;,true,item,true)}}"
+                                                                            lt-prop-type="primary"
+                                                                            lt-prop-name="checkbox"
+                                                                            lt-prop-disabled="{{if(expHandlers(expHandlers(expHandlers(array_contains(combinedcriterias,item),'!'),'&amp;&amp;',expHandlers(combinedcriterias.length,'>=',5)),'||',expHandlers(expHandlers(expHandlers(item.module.api_name,'==',selectedModuleapiname),'&amp;&amp;',expHandlers(array_contains(relatedModuleCriterias,item),'!')),'&amp;&amp;',expHandlers(relatedModuleCriterias.length,'>=',5))),'true','false')}}"
+                                                                            lt-prop-checked="{{if(array_contains(combinedcriterias,item),'true','false')}}"
+                                                                            lt-prop-id="zc-criteria-pop-{{item.zcid}}"
+                                                                            lt-prop-label="{{item.name}}">
+                                                                        </lyte-checkbox> <span
+                                                                            id="canvas_crtiteria_info_{{item.zcid}}"
+                                                                            class="svgIcons ico-info-filled dIB w15px mR5"></span>
+                                                                        <lyte-menu lt-prop-position="right"
+                                                                            lt-prop-wrapper-class="canvas_crtiteria_infoview_tooltip"
+                                                                            on-before-close="{{method('criteriatooltipclose')}}"
+                                                                            on-before-open="{{method('criteriatooltip',this,item,null)}}"
+                                                                            lt-prop-event="mouseenter"
+                                                                            lt-prop-yield="true" lt-prop-callout="true"
+                                                                            lt-prop-query="#canvas_crtiteria_info_{{item.zcid}}">
+                                                                            <template is="registerYield"
+                                                                                yield-name="yield">
+                                                                                <lyte-menu-body>
+                                                                                    <crux-criteria-editor
+                                                                                        class="canvas_crtiteria_infoview_editor"
+                                                                                        id="canvas_crtiteria_infoview_{{item.zcid}}"
+                                                                                        cx-prop-type="view"
+                                                                                        cx-prop-remove-pattern="true">
+                                                                                    </crux-criteria-editor>
+                                                                                </lyte-menu-body>
+                                                                            </template>
+                                                                        </lyte-menu>
+                                                                    </div>
+                                                                </span> </div>
+                                                        </template></template> </template> <template is="if"
+                                                    value="{{expHandlers(expHandlers(defaultModuleapiname,'!==',selectedModuleapiname),'&amp;&amp;',getCanvasRuleSupportedComp(selectedModuleapiname))}}"><template
+                                                        case="true"> <template is="if"
+                                                            value="{{getCanvasRuleForModule(criterias,selectedModuleapiname)}}"><template
+                                                                case="true">
+                                                                <div
+                                                                    class="canvas-tool-name bold uppercase pL5 pT5 pT10 zcriteria-title">
+                                                                    {{getModulenameByApiname(selectedModuleapiname)}}
+                                                                </div>
+                                                            </template></template> <template is="for"
+                                                            items="{{criterias}}" item="item" index="index"> <template
+                                                                is="if"
+                                                                value="{{expHandlers(expHandlers(item.module.api_name,'==',selectedModuleapiname),'&amp;&amp;',expHandlers(item.combined,'!'))}}"><template
+                                                                    case="true">
+                                                                    <div class="zc-criteria-item"> <span
+                                                                            class="oH userPic newUserPic mw200 rpdisableReorder"
+                                                                            lt-prop-tooltip-config="{&quot;position&quot;:&quot;right&quot;}"
+                                                                            lt-prop-title="{{if(expHandlers(expHandlers(expHandlers(criteriatooltipid,'!==',item.zcid),'&amp;&amp;',expHandlers(array_contains(combinedcriterias,item),'!')),'&amp;&amp;',expHandlers(combinedcriterias.length,'>=',5)),getI18n('crm.canvas.rules.component.limit',5),if(expHandlers(expHandlers(expHandlers(item.module.api_name,'==',selectedModuleapiname),'&amp;&amp;',expHandlers(array_contains(relatedModuleCriterias,item),'!')),'&amp;&amp;',expHandlers(relatedModuleCriterias.length,'>=',5)),getI18n('crm.canvas.rules.component.relatedlist.limit',5),''))}}"
+                                                                            lt-prop-tooltip-class="alignleft rpDesTooltip">
+                                                                            <div class="zc-criterialist-menuitem pR"
+                                                                                id="zc-criterialist-menuitem-{{item.id}}"
+                                                                                data-value="{{item.zcid}}">
+                                                                                <lyte-checkbox
+                                                                                    id="compcriteriacheckbox{{item.zcid}}"
+                                                                                    on-checked="{{method(&quot;combinecriteriachange&quot;,false,item,true)}}"
+                                                                                    on-unchecked="{{method(&quot;combinecriteriachange&quot;,true,item,true)}}"
+                                                                                    lt-prop-type="primary"
+                                                                                    lt-prop-name="checkbox"
+                                                                                    lt-prop-disabled="{{if(expHandlers(expHandlers(expHandlers(array_contains(combinedcriterias,item),'!'),'&amp;&amp;',expHandlers(combinedcriterias.length,'>=',5)),'||',expHandlers(expHandlers(expHandlers(item.module.api_name,'==',selectedModuleapiname),'&amp;&amp;',expHandlers(array_contains(relatedModuleCriterias,item),'!')),'&amp;&amp;',expHandlers(relatedModuleCriterias.length,'>=',5))),'true','false')}}"
+                                                                                    lt-prop-checked="{{if(array_contains(combinedcriterias,item),'true','false')}}"
+                                                                                    lt-prop-id="zc-criteria-pop-{{item.zcid}}"
+                                                                                    lt-prop-label="{{item.name}}">
+                                                                                </lyte-checkbox> <span
+                                                                                    id="canvas_crtiteria_info_{{item.zcid}}"
+                                                                                    class="svgIcons ico-info-filled dIB w15px mR5"></span>
+                                                                                <lyte-menu lt-prop-position="right"
+                                                                                    lt-prop-wrapper-class="canvas_crtiteria_infoview_tooltip"
+                                                                                    on-before-close="{{method('criteriatooltipclose')}}"
+                                                                                    on-before-open="{{method('criteriatooltip',this,item,null)}}"
+                                                                                    lt-prop-event="mouseenter"
+                                                                                    lt-prop-yield="true"
+                                                                                    lt-prop-callout="true"
+                                                                                    lt-prop-query="#canvas_crtiteria_info_{{item.zcid}}">
+                                                                                    <template is="registerYield"
+                                                                                        yield-name="yield">
+                                                                                        <lyte-menu-body>
+                                                                                            <crux-criteria-editor
+                                                                                                class="canvas_crtiteria_infoview_editor"
+                                                                                                id="canvas_crtiteria_infoview_{{item.zcid}}"
+                                                                                                cx-prop-type="view"
+                                                                                                cx-prop-remove-pattern="true">
+                                                                                            </crux-criteria-editor>
+                                                                                        </lyte-menu-body>
+                                                                                    </template>
+                                                                                </lyte-menu>
+                                                                            </div>
+                                                                        </span> </div>
+                                                                </template></template> </template>
+                                                    </template></template>
+                                                <div class="zcnomatchel" id="criterianomatch"
+                                                    data-search-source="#criteriasearchinput">
+                                                    {{getI18n('crm.label.no.results.match')}} </div>
+                                            </lyte-popover-content>
+                                            <lyte-popover-footer class="p15">
+                                                <div class="canvas-criteria-menuoptions">
+                                                    <div>
+                                                        <lyte-button lt-prop-appearance="primary"
+                                                            data-zcqa="Apply_Canvas_Rule"
+                                                            click="canvas-builder => addcriteriatoelement()"> <template
+                                                                is="registerYield" yield-name="text">
+                                                                {{getI18n('crm.button.apply')}} </template>
+                                                        </lyte-button>
+                                                        <lyte-button lt-prop-appearance="default"
+                                                            data-zcqa="Cancel_Canvas_Rule"
+                                                            click="canvas-builder => cancelcriteriamenu()"> <template
+                                                                is="registerYield" yield-name="text">
+                                                                {{getI18n('crm.button.cancel')}} </template>
+                                                        </lyte-button>
+                                                    </div>
+                                                </div>
+                                                <div class="aligncenter mT15 f14 canvasrulemanagelink cP"
+                                                    data-zcqa="Manage_Canvas_Rule"
+                                                    click="canvas-builder => openrulemanage()">
+                                                    {{getI18n('crm.canvas.manage.rules')}} <span
+                                                        class="manageruleicon dIB canvasicon pR t3"></span> </div>
+                                            </lyte-popover-footer>
+                                        </template><template case="false">
+                                            <lyte-popover-header class="aligncenter">
+                                                <div class="p30 mT15 aligncenter pB0"> <img alt="loadingGif"
+                                                        class="w40per" src="/crm/CRMClient/images/canvas_rules.svg">
+                                                    <div class="canvas-criteria-emptytext">
+                                                        {{getI18n('crm.canvas.builder.rules.empty')}} </div>
+                                                </div>
+                                                <div class="pL15 pR15 pT15 pB10">
+                                                    <lyte-button class="w100p" lt-prop-class="zcrulecreatebtn"
+                                                        lt-prop-appearance="primary" data-zcqa="new_Canvas_Rule"
+                                                        click="canvas-builder => addcriteriapop(,true)"> <template
+                                                            is="registerYield" yield-name="text">
+                                                            {{getI18n('crm.canvas.rule.create')}} </template>
+                                                    </lyte-button>
+                                                </div>
+                                            </lyte-popover-header>
+                                        </template></template> </template>
+
+                            </lyte-popover>
+                        </div>
+                        <div class="zc_mouse_states mT10" style="display: none;">
+                            <ul class="zcanvas-tools-list-select zc_substate_tool">
+                                <li data-zcqa="canvas-detail-toolsubstate-default" class="zcanvas-tools-list-selected"
+                                    id="zc_substate_default" onclick="switchstate('default',null,true)">
+                                    Normal</li>
+                                <li data-zcqa="canvas-detail-toolstate-active" id="zc_state_active"
+                                    onclick="switchstate('active',null,true)" style="display: none;">Active
+                                </li>
+                                <!-- <li data-zcqa="canvas-detail-toolstate-hover" id="zc_state_hover"
+                                    onclick="switchstate('hover',null,true)" style="display: none;">Hover
+                                </li> -->
+                            </ul>
+                        </div>
+                        <div class="zc_rules_list canvas-tool-container" style="display: none;">
+                            <div class="canvas-tool-name bold"> <span class="uppercase">Rules </span> </div>
+                            <div class="canvas_rulelist_container pT5 pB5"> </div>
+                        </div>
+                        <div class="canvas-tabname-container zc-tool" style="display: none;">
+                            <div class="canvas-tool-box zc_tabname p10"> <span class="zcanvas-tools-input"> <input
+                                        data-zcqa="canvas-detail-tabname-input" type="text" class="zcanvastoolinput "
+                                        id="zctabname" maxlength="25" onkeyup="renametab(true)"
+                                        onfocus="enableSelection(true)" onblur="renametab()"> </span> </div>
+                        </div>
+                        <div class="canvas-available-tools" id="canvas-available-tools">
+                            <div class="canvas-align-tool zc-tool" style="display: none;">
+                                <div class="canvas-left-align">
+                                    <div data-zcqa="canvas-detail-va-left" lt-prop-title="Align Left"
+                                        lt-prop-tooltip-config="{&quot;position&quot; : &quot;top&quot;}"
+                                        click="canvas-builder => halign('zc-va-left')"> <span
+                                            class="zctoolvleftalignicon"></span> </div>
+                                    <div data-zcqa="canvas-detail-va-center" lt-prop-title="Align Center"
+                                        lt-prop-tooltip-config="{&quot;position&quot; : &quot;top&quot;}"
+                                        click="canvas-builder => halign('zc-va-center')"> <span
+                                            class="zctoolvmiddlealignicon"></span> </div>
+                                    <div data-zcqa="canvas-detail-va-right" lt-prop-title="Align Right"
+                                        lt-prop-tooltip-config="{&quot;position&quot; : &quot;top&quot;}"
+                                        click="canvas-builder => halign('zc-va-right')"> <span
+                                            class="zctoolvrightalignicon"></span> </div>
+                                    <div data-zcqa="canvas-detail-va-dist" lt-prop-title="Distribute vertically"
+                                        lt-prop-tooltip-config="{&quot;position&quot; : &quot;top&quot;}"
+                                        click="canvas-builder => valign('zc-va-distribute')"> <span
+                                            class="zctoolvdistalignicon"></span> </div>
+                                </div>
+                                <div class="canvas-top-align">
+                                    <div data-zcqa="canvas-detail-va-top" lt-prop-title="Align Top"
+                                        lt-prop-tooltip-config="{&quot;position&quot; : &quot;top&quot;}"
+                                        click="canvas-builder => valign('zc-va-top')"> <span
+                                            class="zctoolvleftalignicon zcrotate90"></span> </div>
+                                    <div data-zcqa="canvas-detail-va-middle" lt-prop-title="Align Middle"
+                                        lt-prop-tooltip-config="{&quot;position&quot; : &quot;top&quot;}"
+                                        click="canvas-builder => valign('zc-va-center')"> <span
+                                            class="zctoolvmiddlealignicon zcrotate90"></span> </div>
+                                    <div data-zcqa="canvas-detail-va-bottom" lt-prop-title="Align Bottom"
+                                        lt-prop-tooltip-config="{&quot;position&quot; : &quot;top&quot;}"
+                                        click="canvas-builder => valign('zc-va-bottom')"> <span
+                                            class="zctoolvrightalignicon zcrotate90"></span> </div>
+                                    <div data-zcqa="canvas-detail-va-hdist" lt-prop-title="Distribute Horizontally"
+                                        lt-prop-tooltip-config="{&quot;position&quot; : &quot;top&quot;}"
+                                        click="canvas-builder => halign('zc-va-distribute')"> <span
+                                            class="zctoolvdistalignicon zcrotate90"></span> </div>
+                                </div>
+                            </div>
+                            <div class="canvas-text-tools zc-tool">
+                                <div class="pT7 pB7">
+                                    <div id="sizeselect"></div>
+                                    <div id="weightselect"></div>
+                                    <div id="fontcolor"></div>
+                                </div>
+                                <div class="pT7 pB7">
+                                    <div id="uppercasetool"></div>
+                                    <!-- <div id="italictool"></div> -->
+                                    <div id=linethroughtool></div>
+                                    <div class="zc-tool" id="aligntool"></div>
+                                </div>
+                            </div>
+                            <div id="linkcont" class="zc-tool" style="display: none;"></div>
+                            <div class="canvas-tool-container zc-lh-tool zc-tool" style="display: none;">
+                                <div class="canvas-tool-name bold uppercase zc-remove-styletool"> <span>Line
+                                        Height</span> </div>
+                                <div class="canvas-tool-box canvas-spacing-tool mT10"> <span class="w75per"
+                                        id="lhslider"><span class="zcanvas-tools-slider"
+                                            data-zcqa="canvas-detail-tool-lhslider"> <span
+                                                class="zcanvassliderfill"></span> <input type="range"
+                                                class="zcanvastoolslider" min="1" max="2" step=".1"> </span></span>
+                                    <span class="spaceicon" id="lhinput"><span class="zcanvas-tools-input"
+                                            data-zcqa="canvas-detail-tool-lhinput"> <input type="number"
+                                                class="zcanvastoolinput" min="1" max="2"> </span></span>
+                                </div>
+                            </div>
+                            <div class="canvas-tool-container zc-icon-colortool zc-tool" style="display: none;">
+                                <div class="canvas-tool-name bold uppercase"> <span>Icon Color</span> </div>
+                                <div class="canvas-tool-box">
+                                    <div>
+                                        <div class="zc_hexinput" id="iconcolor">
+                                        </div>
+                                        <div class="canvas-tool-name-small">Hex</div>
+                                    </div>
+                                    <div>
+                                        <div id="iconcolorinput">
+                                        </div>
+                                        <div class="canvas-tool-name-small">Color</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="canvas-tool-container zc-labelalign-tool zc-tool" style="display: none;">
+                                <div class="canvas-tool-name bold uppercase"> <span>Label Align</span> </div>
+                                <div class="canvas-tool-box bgimageprops pB0" id="labelaligntool">
+                                </div>
+                            </div>
+                            <div class="canvas-tool-container zc-lineheight-tool zc-tool" style="display: none;">
+                                <div class="canvas-tool-name bold uppercase"> <span>Line Height</span> </div>
+                                <div class="canvas-tool-box bgimageprops pB0"> </div>
+                            </div>
+                            <div class="canvas-tool-container zc-bg-tool zc-tool" style="">
+                                <div class="canvas-tool-name bold uppercase"> <span>Background</span> </div>
+                                <div class="zc-bg-fill">
+                                    <div>
+                                        <div class="zc_hexinput" id="bgcolorinput">
+                                        </div>
+                                        <div class="canvas-tool-name-small">Hex</div>
+                                    </div>
+                                    <div>
+                                        <div id="bgcolor">
+                                        </div>
+                                        <div class="canvas-tool-name-small">Color</div>
+                                    </div>
+                                </div>
+                                <div class="zc-bg-adv-tool zc-tool pT15" style="">
+                                    <div class="canvas-tool-box zc_pB0">
+                                        <div class="w50per"> <span id="bgimagecontd"
+                                                data-zcqa="canvas-detail-tool-bgimagecontd"><span
+                                                    class="zc_checkbox"></span></span> <span
+                                                class="canvas-sub-tool-name"> Image </span> </div>
+                                        <div class="w50per"> <span id="bggradcontd"
+                                                data-zcqa="canvas-detail-tool-bggradcontd"><span
+                                                    class="zc_checkbox"></span></span> <span
+                                                class="canvas-sub-tool-name mT10"> Gradient </span> </div>
+                                    </div>
+                                    <div class="zc-tool pT10" id="bgimagetool" style="display: none;">
+                                        <div class="canvas-tool-name bold uppercase"> Image </div>
+                                        <div id="bgimage"><textarea
+                                                placeholder="Image URL (https://www.example.com/image.jpeg)"
+                                                class="zcanvastoolinput zcanvastooltext"
+                                                data-zcqa="canvas-detail-tool-bgimage"> </textarea></div>
+                                        <div class="bgimageprops">
+                                            <div class="canvas-sub-tool-name pT10 pb10">Image Size</div>
+                                            <div id="imagesize">
+                                            </div>
+                                            <!-- <div class="canvas-sub-tool-name pT10 pb10">Image Repeat</div>
+                                            <div id="imagerepeat">
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                    <div class="zc-tool mT10" id="bggradtool" style="display: none;">
+                                        <div class="canvas-tool-name bold uppercase"> Gradient </div>
+                                        <div class="canvas-tool-box zc-gradienttool pB0">
+                                            <div class="w30per" id="bgdegree" data-zcqa="canvas-detail-tool-bgdegree">
+                                                <div class="z-degree-picker">
+                                                    <div class="z-degree-angle">
+                                                        <div class="z-degree-angle-pointer"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="w70per" id="bggradient"
+                                                data-zcqa="canvas-detail-tool-bggradient">
+                                                <div class="z-gradient-input">
+                                                    <div class="z-gradient-slider">
+                                                        <div class="z-gradient-slideline"></div>
+                                                    </div>
+                                                    <div class="z-gradient-addstop">+</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="canvas-tool-container zc-border-tool zc-tool" style="display: none;">
+                                <div class="canvas-tool-name bold uppercase zc-remove-styletool pL5 pR5">
+                                    <span>Border</span> <span id="borderhideswt"
+                                        data-zcqa="canvas-detail-tool-borderhideswt"><span
+                                            class="zc_checkbox zc_line_style"></span></span>
+                                </div>
+                                <div class="canvas-border-container mT10">
+                                    <div class="canvas-box-single zc-sep-hide pL5 pR5 bdrbox">
+                                        <div class="w75per" id="bslide"><span class="zcanvas-tools-slider"
+                                                data-zcqa="canvas-detail-tool-bslide"> <span
+                                                    class="zcanvassliderfill"></span> <input type="range"
+                                                    class="zcanvastoolslider" min="0" max="20"> </span></div>
+                                        <div class="spaceicon" id="bwidth"><span class="zcanvas-tools-input"
+                                                data-zcqa="canvas-detail-tool-bwidth"> <input type="number"
+                                                    onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+                                                    class="zcanvastoolinput" min="0" max="20"> <span
+                                                    class="zcanvas-tool-input-param">px</span> </span></div>
+                                    </div>
+                                    <div
+                                        class="canvas-tool-multiple canvas-border-tab w100per canvas-tool-box pB0 mT_5">
+                                        <span class="spacetop spaceicon p5 zc-tools-selected" id="btwidth"><span
+                                                class="zcanvas-tools-input" data-zcqa="canvas-detail-tool-btwidth">
+                                                <input type="number"
+                                                    onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+                                                    class="zcanvastoolinput" min="0" max="20"> <span
+                                                    class="zcanvas-tool-input-param">px</span> </span></span> <span
+                                            class="spaceright spaceicon p5" id="brwidth"><span
+                                                class="zcanvas-tools-input" data-zcqa="canvas-detail-tool-brwidth">
+                                                <input type="number"
+                                                    onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+                                                    class="zcanvastoolinput" min="0" max="20"> <span
+                                                    class="zcanvas-tool-input-param">px</span> </span></span> <span
+                                            class="spacebottom spaceicon p5" id="bbwidth"><span
+                                                class="zcanvas-tools-input" data-zcqa="canvas-detail-tool-bbwidth">
+                                                <input type="number"
+                                                    onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+                                                    class="zcanvastoolinput" min="0" max="20"> <span
+                                                    class="zcanvas-tool-input-param">px</span> </span></span> <span
+                                            class="spaceleft spaceicon p5" id="blwidth"><span
+                                                class="zcanvas-tools-input" data-zcqa="canvas-detail-tool-blwidth">
+                                                <input type="number"
+                                                    onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+                                                    class="zcanvastoolinput" min="0" max="20"> <span
+                                                    class="zcanvas-tool-input-param">px</span> </span></span>
+                                    </div>
+                                    <div class="canvas-box-single zc-sep-hide pL5 pR5 bdrbox">
+                                        <div>
+                                            <div class=" canvas-border-style" id="bstyle">
+                                            </div>
+                                            <div class="canvas-tool-name-small">Style</div>
+                                        </div>
+                                        <div>
+                                            <div class="zc_hexinput" id="bhex">
+                                            </div>
+                                            <div class="canvas-tool-name-small">Hex</div>
+                                        </div>
+                                        <div>
+                                            <div id="bcolor">
+                                            </div>
+                                            <div class="canvas-tool-name-small">Color</div>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="canvas-tool-multiple w100per canvas-border-selectedbg p5 bdrbox zc-first-selected-element">
+                                        <div class="canvas-multi-border canvas-border-top pB0">
+                                            <div> <span class=" canvas-border-style" id="btstyle">
+                                                </span>
+                                                <div class="canvas-tool-name-small">Top Style</div>
+                                            </div>
+                                            <div>
+                                                <div class="zc_hexinput" id="bthex">
+                                                </div>
+                                                <div class="canvas-tool-name-small">Hex</div>
+                                            </div>
+                                            <div>
+                                                <span id="btcolor">
+                                                </span>
+                                                <div class="canvas-tool-name-small">Color</div>
+                                            </div>
+                                        </div>
+                                        <div class="canvas-multi-border canvas-border-right zc-border-hide pB0">
+                                            <div> <span class=" canvas-border-style" id="brstyle">
+                                                </span>
+                                                <div class="canvas-tool-name-small">Right Style</div>
+                                            </div>
+                                            <div>
+                                                <div class="zc_hexinput" id="brhex">
+                                                </div>
+                                                <div class="canvas-tool-name-small">Hex</div>
+                                            </div>
+                                            <div> <span id="brcolor">
+                                                </span>
+                                                <div class="canvas-tool-name-small">Color</div>
+                                            </div>
+                                        </div>
+                                        <div class="canvas-multi-border canvas-border-bottom zc-border-hide pB0">
+                                            <div> <span class=" canvas-border-style" id="bbstyle">
+                                                </span>
+                                                <div class="canvas-tool-name-small">Bottom Style</div>
+                                            </div>
+                                            <div>
+                                                <div class="zc_hexinput" id="bbhex">
+                                                </div>
+                                                <div class="canvas-tool-name-small">Hex</div>
+                                            </div>
+                                            <div> <span id="bbcolor">
+                                                </span>
+                                                <div class="canvas-tool-name-small">Color</div>
+                                            </div>
+                                        </div>
+                                        <div class="canvas-multi-border canvas-border-left zc-border-hide pB0">
+                                            <div> <span class=" canvas-border-style" id="blstyle">
+                                                </span>
+                                                <div class="canvas-tool-name-small">Left Style</div>
+                                            </div>
+                                            <div>
+                                                <div class="zc_hexinput" id="blhex">
+                                                </div>
+                                                <div class="canvas-tool-name-small">Hex</div>
+                                            </div>
+                                            <div> <span id="blcolor">
+                                                </span>
+                                                <div class="canvas-tool-name-small">Color</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="canvas-tool-helper"> <span class="vam" id="borderswitch"
+                                            data-zcqa="canvas-detail-tool-borderswitch"><span
+                                                class="zc_checkbox"></span></span> <span
+                                            class="canvas-helper-text">Border same for all sides</span>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="canvas-tool-container zc-shadow-tool zc-tool" style="display: none;">
+                                <div class="canvas-tool-name bold uppercase zc-remove-styletool"> <span>Shadow</span>
+                                    <span id="shadowhideswt" data-zcqa="canvas-detail-tool-shadowhideswt"><span
+                                            class="zc_checkbox zc_line_style"></span></span>
+                                </div>
+                                <div class="canvas-tool-box canvas-shadow-container mT10">
+                                    <div>
+                                        <div id="shadowx"><span class="zcanvas-tools-input"
+                                                data-zcqa="canvas-detail-tool-shadowX"> <input type="number"
+                                                    onkeypress="return event.charCode == 45 || (event.charCode >= 48 &amp;&amp; event.charCode <= 57)"
+                                                    class="zcanvastoolinput" min="-20" max="20"> <span
+                                                    class="zcanvas-tool-input-param">px</span> </span></div>
+                                        <div class="canvas-tool-name-small">X</div>
+                                    </div>
+                                    <div>
+                                        <div id="shadowy"><span class="zcanvas-tools-input"
+                                                data-zcqa="canvas-detail-tool-shadowY"> <input type="number"
+                                                    onkeypress="return event.charCode == 45 || (event.charCode >= 48 &amp;&amp; event.charCode <= 57)"
+                                                    class="zcanvastoolinput" min="-20" max="20"> <span
+                                                    class="zcanvas-tool-input-param">px</span> </span></div>
+                                        <div class="canvas-tool-name-small">Y</div>
+                                    </div>
+                                    <div>
+                                        <div id="shadowblur"><span class="zcanvas-tools-input"
+                                                data-zcqa="canvas-detail-tool-shadowblur"> <input type="number"
+                                                    onkeypress="return event.charCode == 45 || (event.charCode >= 48 &amp;&amp; event.charCode <= 57)"
+                                                    class="zcanvastoolinput" min="-20" max="20"> <span
+                                                    class="zcanvas-tool-input-param">px</span> </span></div>
+                                        <div class="canvas-tool-name-small">Blur</div>
+                                    </div>
+                                    <div>
+                                        <div id="shadowspread"><span class="zcanvas-tools-input"
+                                                data-zcqa="canvas-detail-tool-shadowspread"> <input type="number"
+                                                    onkeypress="return event.charCode == 45 || (event.charCode >= 48 &amp;&amp; event.charCode <= 57)"
+                                                    class="zcanvastoolinput" min="-20" max="20"> <span
+                                                    class="zcanvas-tool-input-param">px</span> </span></div>
+                                        <div class="canvas-tool-name-small">Spread</div>
+                                    </div>
+                                    <div>
+                                        <div id="shdowcolor">
+                                        </div>
+                                        <div class="canvas-tool-name-small">Color</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="canvas-tool-container zc-radiusp-tool zc-tool" style="display: none;">
+                                <div class="canvas-tool-name bold uppercase zc-remove-styletool"> <span>Radius</span>
+                                    <span id="radiusphideswt" data-zcqa="canvas-detail-tool-radiusphideswt"><span
+                                            class="zc_checkbox zc_line_style"></span></span>
+                                </div>
+                                <div class="canvas-tool-box canvas-radiusp-tool canvas-spacing-tool mT10"> <span
+                                        class="w75per mT8" id="radiussliderp"><span class="zcanvas-tools-slider"
+                                            data-zcqa="canvas-detail-tool-radiussliderp"> <span
+                                                class="zcanvassliderfill"></span> <input type="range"
+                                                class="zcanvastoolslider" min="0" max="50"> </span></span> <span
+                                        class="radiusicon radiusfill" id="radiusinputp"><span
+                                            class="zcanvas-tools-input" data-zcqa="canvas-detail-tool-radiusinputp">
+                                            <input type="number"
+                                                onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+                                                class="zcanvastoolinput" min="0" max="50"> <span
+                                                class="zcanvas-tool-input-param">%</span> </span></span> <span
+                                        class="radiusleft spaceicon zc-sep-hide" id="radiusleftinputp"><span
+                                            class="zcanvas-tools-input" data-zcqa="canvas-detail-tool-radiusleftinputp">
+                                            <input type="number"
+                                                onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+                                                class="zcanvastoolinput" min="0" max="50"> <span
+                                                class="zcanvas-tool-input-param">%</span> </span></span> <span
+                                        class="radiusright spaceicon zc-sep-hide" id="radiustopinputp"><span
+                                            class="zcanvas-tools-input" data-zcqa="canvas-detail-tool-radiustopinputp">
+                                            <input type="number"
+                                                onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+                                                class="zcanvastoolinput" min="0" max="50"> <span
+                                                class="zcanvas-tool-input-param">%</span> </span></span> <span
+                                        class="radiustop spaceicon zc-sep-hide" id="radiusrightinputp"><span
+                                            class="zcanvas-tools-input"
+                                            data-zcqa="canvas-detail-tool-radiusrightinputp"> <input type="number"
+                                                onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+                                                class="zcanvastoolinput" min="0" max="50"> <span
+                                                class="zcanvas-tool-input-param">%</span> </span></span> <span
+                                        class="radiusbottom spaceicon zc-sep-hide" id="radiusbottominputp"><span
+                                            class="zcanvas-tools-input"
+                                            data-zcqa="canvas-detail-tool-radiusbottominputp"> <input type="number"
+                                                onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+                                                class="zcanvastoolinput" min="0" max="50"> <span
+                                                class="zcanvas-tool-input-param">%</span> </span></span> </div>
+                                <div class="canvas-tool-helper canvas-radiusp-tool"> <span class="vam"
+                                        id="radiusswitchp" data-zcqa="canvas-detail-tool-radiusswitchp"><span
+                                            class="zc_checkbox"></span></span> <span class="canvas-helper-text">Radius
+                                        same for all sides</span> </div>
+                            </div>
+                            <div class="canvas-tool-container zc-radius-tool zc-tool" style="display: none;">
+                                <div class="canvas-tool-name bold uppercase zc-remove-styletool"> <span>Radius</span>
+                                    <span id="radiushideswt" data-zcqa="canvas-detail-tool-radiushideswt"><span
+                                            class="zc_checkbox zc_line_style"></span></span>
+                                </div>
+                                <div class="canvas-tool-box canvas-radius-tool canvas-spacing-tool mT10"> <span
+                                        class="w75per" id="radiusslider"><span class="zcanvas-tools-slider"
+                                            data-zcqa="canvas-detail-tool-radiusslider"> <span
+                                                class="zcanvassliderfill"></span> <input type="range"
+                                                class="zcanvastoolslider" min="0" max="99"> </span></span> <span
+                                        class="radiusfill radiusicon" id="radiusinput"><span class="zcanvas-tools-input"
+                                            data-zcqa="canvas-detail-tool-radiusinput"> <input type="number"
+                                                onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+                                                class="zcanvastoolinput" min="0" max="99"> <span
+                                                class="zcanvas-tool-input-param">px</span> </span></span> <span
+                                        class="radiusleft radiusicon zc-sep-hide" id="radiusleftinput"><span
+                                            class="zcanvas-tools-input" data-zcqa="canvas-detail-tool-radiusleftinput">
+                                            <input type="number"
+                                                onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+                                                class="zcanvastoolinput" min="0" max="99"> <span
+                                                class="zcanvas-tool-input-param">px</span> </span></span> <span
+                                        class="radiusright radiusicon zc-sep-hide" id="radiustopinput"><span
+                                            class="zcanvas-tools-input" data-zcqa="canvas-detail-tool-radiustopinput">
+                                            <input type="number"
+                                                onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+                                                class="zcanvastoolinput" min="0" max="99"> <span
+                                                class="zcanvas-tool-input-param">px</span> </span></span> <span
+                                        class="radiustop radiusicon zc-sep-hide" id="radiusrightinput"><span
+                                            class="zcanvas-tools-input" data-zcqa="canvas-detail-tool-radiusrightinput">
+                                            <input type="number"
+                                                onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+                                                class="zcanvastoolinput" min="0" max="99"> <span
+                                                class="zcanvas-tool-input-param">px</span> </span></span> <span
+                                        class="radiusbottom radiusicon zc-sep-hide" id="radiusbottominput"><span
+                                            class="zcanvas-tools-input"
+                                            data-zcqa="canvas-detail-tool-radiusbottominput"> <input type="number"
+                                                onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+                                                class="zcanvastoolinput" min="0" max="99"> <span
+                                                class="zcanvas-tool-input-param">px</span> </span></span> </div>
+                                <div class="canvas-tool-helper canvas-radius-tool"> <span class="vam" id="radiusswitch"
+                                        data-zcqa="canvas-detail-tool-radiusswitch"><span
+                                            class="zc_checkbox"></span></span> <span class="canvas-helper-text">Radius
+                                        same for all sides</span> </div>
+                            </div>
+                            <div class="canvas-tool-container zc-padding-tool zc-tool" style="">
+                                <div class="canvas-tool-name bold uppercase zc-remove-styletool"> <span>Padding</span>
+                                    <span id="paddinghideswt" data-zcqa="canvas-detail-tool-paddinghideswt"
+                                        class="zcanvas-tool-toggle-selected"><span
+                                            class="zc_checkbox zc_line_style"></span></span>
+                                </div>
+                                <div class="canvas-tool-box canvas-spacing-tool canvas-padding-tool mT10"> <span
+                                        class="w75per zc-sep-hide" id="paddingslider"><span class="zcanvas-tools-slider"
+                                            data-zcqa="canvas-detail-tool-paddingslider"> <span
+                                                class="zcanvassliderfill" style="width: 100%;"></span> <input
+                                                type="range" class="zcanvastoolslider" min="0" max="99"> </span></span>
+                                    <span class="spacefill spaceicon zc-sep-hide" id="paddinginput"><span
+                                            class="zcanvas-tools-input" data-zcqa="canvas-detail-tool-paddinginput">
+                                            <input type="number"
+                                                onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+                                                class="zcanvastoolinput" min="0" max="99"> <span
+                                                class="zcanvas-tool-input-param">px</span> </span></span> <span
+                                        class="spaceleft spaceicon" id="paddingleftinput"><span
+                                            class="zcanvas-tools-input" data-zcqa="canvas-detail-tool-paddingleftinput">
+                                            <input type="number"
+                                                onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+                                                class="zcanvastoolinput" min="0" max="99"> <span
+                                                class="zcanvas-tool-input-param">px</span> </span></span> <span
+                                        class="spaceright spaceicon" id="paddingrightinput"><span
+                                            class="zcanvas-tools-input"
+                                            data-zcqa="canvas-detail-tool-paddingrightinput"> <input type="number"
+                                                onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+                                                class="zcanvastoolinput" min="0" max="99"> <span
+                                                class="zcanvas-tool-input-param">px</span> </span></span> <span
+                                        class="spacetop spaceicon" id="paddingtopinput"><span
+                                            class="zcanvas-tools-input" data-zcqa="canvas-detail-tool-paddingtopinput">
+                                            <input type="number"
+                                                onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+                                                class="zcanvastoolinput" min="0" max="99"> <span
+                                                class="zcanvas-tool-input-param">px</span> </span></span> <span
+                                        class="spaceicon spacebottom" id="paddingbottominput"><span
+                                            class="zcanvas-tools-input"
+                                            data-zcqa="canvas-detail-tool-paddingbottominput"> <input type="number"
+                                                onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+                                                class="zcanvastoolinput" min="0" max="99"> <span
+                                                class="zcanvas-tool-input-param">px</span> </span></span>
+                                </div>
+                                <div class="canvas-tool-helper canvas-padding-tool"> <span class="vam"
+                                        id="paddingswitch" data-zcqa="canvas-detail-tool-paddingswitch"><span
+                                            class="zc_checkbox"></span></span> <span class="canvas-helper-text">Padding
+                                        same for all sides</span> </div>
+                            </div>
+                            <div class="canvas-tool-container dimentiontool zc-tool" style="">
+                                <div class="canvas-tool-box">
+                                    <div>
+                                        <div class="canvas-tool-name bold uppercase"> Height </div>
+                                        <div class="zcrm-canvas-tools-list">
+                                            <div class="spaceicon dimensiontool" id="heighttool"><span
+                                                    class="zcanvas-tools-input" data-zcqa="canvas-detail-tool-height">
+                                                    <input type="number"
+                                                        onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+                                                        class="zcanvastoolinput" min="1" max="21000"> <span
+                                                        class="zcanvas-tool-input-param">px</span> </span></div>
+                                            <div class="canvas-tool-helper mL6"> <span
+                                                    class="vam zcanvas-tool-toggle-selected" id="heightswitch"
+                                                    data-zcqa="canvas-detail-tool-heightswitch"><span
+                                                        class="zc_checkbox"></span></span> <span
+                                                    class="canvas-helper-text">Auto </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="canvas-tool-name bold uppercase"> Width </div>
+                                        <div class="zcrm-canvas-tools-list">
+                                            <div class="spaceicon dimensiontool" id="widthtool"><span
+                                                    class="zcanvas-tools-input" data-zcqa="canvas-detail-tool-width">
+                                                    <input type="number"
+                                                        onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+                                                        class="zcanvastoolinput" min="1" max="3000"> <span
+                                                        class="zcanvas-tool-input-param">px</span> </span></div>
+                                            <div class="canvas-tool-helper mL6"> <span
+                                                    class="vam zcanvas-tool-toggle-selected" id="widthswitch"
+                                                    data-zcqa="canvas-detail-tool-widthswitch"><span
+                                                        class="zc_checkbox"></span></span> <span
+                                                    class="canvas-helper-text">Auto </span> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="canvas-tool-container zc-margin-tool zc-tool" style="display: none;">
+                                <div class="canvas-tool-name bold uppercase zc-remove-styletool"> <span>Margin</span>
+                                    <span id="marginhideswt" data-zcqa="canvas-detail-tool-marginhideswt"><span
+                                            class="zc_checkbox zc_line_style"></span></span>
+                                </div>
+                                <div class="canvas-tool-box canvas-spacing-tool canvas-margin-tool"> <span
+                                        class="w75per" id="marginslider"><span class="zcanvas-tools-slider"
+                                            data-zcqa="canvas-detail-tool-marginslider"> <span
+                                                class="zcanvassliderfill"></span> <input type="range"
+                                                class="zcanvastoolslider" min="0" max="99"> </span></span> <span
+                                        class="spacefill spaceicon" id="margininput"><span class="zcanvas-tools-input"
+                                            data-zcqa="canvas-detail-tool-margininput"> <input type="number"
+                                                onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+                                                class="zcanvastoolinput" min="0" max="99"> <span
+                                                class="zcanvas-tool-input-param">px</span> </span></span> <span
+                                        class="spaceleft spaceicon zc-sep-hide" id="marginleftinput"><span
+                                            class="zcanvas-tools-input" data-zcqa="canvas-detail-tool-marginleftinput">
+                                            <input type="number"
+                                                onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+                                                class="zcanvastoolinput" min="0" max="99"> <span
+                                                class="zcanvas-tool-input-param">px</span> </span></span> <span
+                                        class="spaceright spaceicon zc-sep-hide" id="marginrightinput"><span
+                                            class="zcanvas-tools-input" data-zcqa="canvas-detail-tool-marginrightinput">
+                                            <input type="number"
+                                                onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+                                                class="zcanvastoolinput" min="0" max="99"> <span
+                                                class="zcanvas-tool-input-param">px</span> </span></span> <span
+                                        class="spacetop spaceicon zc-sep-hide" id="margintopinput"><span
+                                            class="zcanvas-tools-input" data-zcqa="canvas-detail-tool-margintopinput">
+                                            <input type="number"
+                                                onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+                                                class="zcanvastoolinput" min="0" max="99"> <span
+                                                class="zcanvas-tool-input-param">px</span> </span></span> <span
+                                        class="spacebottom spaceicon zc-sep-hide" id="marginbottominput"><span
+                                            class="zcanvas-tools-input"
+                                            data-zcqa="canvas-detail-tool-marginbottominput"> <input type="number"
+                                                onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+                                                class="zcanvastoolinput" min="0" max="99"> <span
+                                                class="zcanvas-tool-input-param">px</span> </span></span> </div>
+                                <div class="canvas-tool-helper canvas-margin-tool"> <span class="vam" id="marginswitch"
+                                        data-zcqa="canvas-detail-tool-marginswitch"><span
+                                            class="zc_checkbox"></span></span> <span class="canvas-helper-text">Margin
+                                        same for all sides</span> </div>
+                            </div>
+                            <div class="canvas-tool-container zc-thickness-tool zc-tool" style="display: none;">
+                                <div class="bgimageprops" id="linemodeswitch">
+                                </div>
+                            </div>
+                            <div class="canvas-tool-container zc-thickness-tool zc-tool" style="display: none;">
+                                <div class="canvas-tool-name bold uppercase zc-remove-styletool"> <span>Thickness</span>
+                                </div>
+                                <div class="mT10">
+                                    <div class="canvas-border-box">
+                                        <div class="w75per" id="thickslide"><span class="zcanvas-tools-slider"
+                                                data-zcqa="canvas-detail-tool-thickslide"> <span
+                                                    class="zcanvassliderfill"></span> <input type="range"
+                                                    class="zcanvastoolslider" min="1" max="20"> </span></div>
+                                        <div class="spaceicon" id="thickwidth"><span class="zcanvas-tools-input"
+                                                data-zcqa="canvas-detail-tool-thickwidth"> <input type="number"
+                                                    onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"
+                                                    class="zcanvastoolinput" min="1" max="20"> <span
+                                                    class="zcanvas-tool-input-param">px</span> </span></div>
+                                    </div>
+                                    <div class="canvas-border-box">
+                                        <!-- <div>
+                                            <div class=" canvas-border-style" id="thickstyle">
+                                            </div>
+                                            <div class="canvas-tool-name-small">Style</div>
+                                        </div> -->
+                                        <div>
+                                            <div class="zc_hexinput" id="thickhex"></div>
+                                            <div class="canvas-tool-name-small">Hex</div>
+                                        </div>
+                                        <div>
+                                            <div id="thickcolor"></div>
+                                            <div class="canvas-tool-name-small">Color</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="canvas-tool-container zc-tool" id="zcvisibilitycontainer">
+                                <div class="canvas-tool-name bold uppercase"> <span>Visibility</span> </div>
+                                <div class="mT10">
+                                    <div id="visibilitytool" class="bgimageprops">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="canvas-tool-container zc-depth-tool zc-tool" style="display: none;">
+                                <div class="canvas-tool-name bold uppercase"> <span>Depth</span> </div>
+                                <div class="mT10">
+                                    <div class="canvas-border-box">
+                                        <div data-zcqa="canvas-detail-depthforward" id="depthforward"><button
+                                                data-zcqa="canvas-detail-tool-depthforward"><span
+                                                    class="zc-depth-icon canvasicon"></span></button></div>
+                                        <div data-zcqa="canvas-detail-depthbackward" id="depthbackward"><button
+                                                data-zcqa="canvas-detail-tool-depthbackward"><span
+                                                    class="zc-depth-icon-back canvasicon"></span></button></div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="canvas-tool-container zc-fit-screen zc-tool" style=""> <span>
+                                    <lyte-checkbox data-zcqa="fit_to_screen" lt-prop-name="fixed" lt-prop-checked="true"
+                                        lt-prop-value="val" lt-prop-id="fixed" lt-prop-label="Fit to Screen"
+                                        class="fitToScreenEditor" keydown="lyte-checkbox => preventInputClick(event)"
+                                        keyup="lyte-checkbox => preventInputClick(event)" lyte-rendered="">
+
+
+                                        <label class="lyteCheckbox lyteDefault" mouseup="lyte-checkbox => mup(event)"
+                                            click="lyte-checkbox => prevent(event)">
+                                            <input type="checkbox" id="fixed" name="fixed" value="val" checked=""
+                                                tabindex="0" class="" click="lyte-checkbox => checkBoxClicked(event)">
+                                            <span class="lyteCheckBoxDefault">
+                                                <span class="">
+
+                                                    Fit to Screen
+
+                                                </span>
+                                            </span>
+                                        </label>
+
+                                    </lyte-checkbox>
+                                </span> </div>
+                            <div id="canvas-context-styles"> </div>
+                        </div>
+                    </div>
+                    <div class="canvas-page-container">
+                        <div class="pR canvas-builder-area" click="canvas-builder => switchmenu(event,this)">
+                            <div data-zcqa="canvas-detail-page"
+                                class="zcanvas-editor-outer ui-droppable ui-resizable zcanvas-selected-element"
+                                id="zcanvas-editor-outer" style="height: 208.352px;">
+                                <crm-canvas-icon-picker lyte-rendered="">
+                                    <div class="zcicondropdpwn">
+                                        <div class="canvas-iconpicker-container">
+                                            <!-- <div class="canvas-iconpicker-search-container">
+                                                <div class="canvas_field_search searchel w100p mT0"> <input
+                                                        placeholder="Search" type="text" autocomplete="off"
+                                                        id="iconpickersearch" input="crm-canvas-icon-picker => search">
+                                                    <span class="dIB pR canvas_search_icon"> <span
+                                                            class="zc_searchIcon pA"></span> </span>
+                                                </div>
+                                            </div> -->
+                                            <!-- <div class="canvas-iconpicker-icontype-container">
+                                                <div class="canvas-iconpicker-icontype-label"> Icon Style </div>
+                                                <div class="canvas-iconpicker-icontype-selection-container">
+                                                    <div class="canvas-iconpicker-icontype-radiobox">
+                                                        <lyte-radiobutton class="mR8" lt-prop-checked="true"
+                                                            lt-prop-name="icontype" lt-prop-value="1"
+                                                            lt-prop-label="Filled" radioclass="lyteRadioBtn lyteDefault"
+                                                            lyte-rendered="">
+
+                                                            <label class="lyteRadioBtn lyteDefault"
+                                                                mouseup="lyte-radiobutton => mup(event)">
+                                                                <input type="radio" name="icontype" value="1"
+                                                                    class="lyteHide" checked=""
+                                                                    keypress="lyte-radiobutton => preventPropagation(event)"
+                                                                    click="lyte-radiobutton => valueChanged(event)">
+                                                                <span class="lyteRadioLayer">
+                                                                    <span class="lyteRadioCheck">
+                                                                    </span>
+                                                                </span>
+                                                                <span class="lyteRadioLabel">
+
+                                                                    Filled
+
+                                                                </span>
+                                                            </label>
+
+                                                        </lyte-radiobutton>
+                                                        <lyte-radiobutton lt-prop-checked="false"
+                                                            lt-prop-name="icontype" lt-prop-value="2"
+                                                            lt-prop-label="Outline"
+                                                            radioclass="lyteRadioBtn lyteDefault" lyte-rendered="">
+
+                                                            <label class="lyteRadioBtn lyteDefault"
+                                                                mouseup="lyte-radiobutton => mup(event)">
+                                                                <input type="radio" name="icontype" value="2"
+                                                                    class="lyteHide"
+                                                                    keypress="lyte-radiobutton => preventPropagation(event)"
+                                                                    click="lyte-radiobutton => valueChanged(event)">
+                                                                <span class="lyteRadioLayer">
+                                                                    <span class="lyteRadioCheck">
+                                                                    </span>
+                                                                </span>
+                                                                <span class="lyteRadioLabel">
+
+                                                                    Outline
+
+                                                                </span>
+                                                            </label>
+
+                                                        </lyte-radiobutton>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                            <div class="canvas-iconpicker-list-container">
+                                                <ul class="zciconlist">
+                                                    <!-- <li class="icon-Icon_plus"></li> -->
+                                                    <li class="icon-Icon_Back"></li>
+                                                    <li class="icon-Icon_Leftarrow1"></li>
+                                                    <li class="icon-Icon_dot_three"></li>
+                                                    <li class="icon-Icon_Rightarrow1"></li>
+                                                    <li class="icon-Icon_Antenna"></li>
+                                                    <li class="icon-Icon_Datacard"></li>
+                                                    <li class="icon-Icon_Dish"></li>
+                                                    <li class="icon-Icon_Fiber"></li>
+                                                    <li class="icon-Icon_HDvoice"></li>
+                                                    <li class="icon-Icon_Internationalroaming"></li>
+                                                    <li class="icon-Icon_Navigation"></li>
+                                                    <li class="icon-Icon_QRcode"></li>
+                                                    <li class="icon-Icon_Router"></li>
+                                                    <li class="icon-Icon_Scan"></li>
+                                                    <li class="icon-Icon_Signalstrength"></li>
+                                                    <li class="icon-Icon_Simcard"></li>
+                                                    <li class="icon-Icon_Status"></li>
+                                                    <li class="icon-Icon_Surveillance"></li>
+                                                    <li class="icon-Icon_Unlimited"></li>
+                                                    <li class="icon-Icon_Barcode"></li>
+                                                    <li class="icon-Icon_Bill"></li>
+                                                    <li class="icon-Icon_Calculator"></li>
+                                                    <li class="icon-Icon_Cards"></li>
+                                                    <li class="icon-Icon_Customersupport"></li>
+                                                    <li class="icon-Icon_Delivery"></li>
+                                                    <li class="icon-Icon_Dress"></li>
+                                                    <li class="icon-Icon_Elevator"></li>
+                                                    <li class="icon-Icon_Fragile"></li>
+                                                    <li class="icon-Icon_Gift"></li>
+                                                    <li class="icon-Icon_Money"></li>
+                                                    <li class="icon-Icon_Offer"></li>
+                                                    <li class="icon-Icon_Piggybank"></li>
+                                                    <li class="icon-Icon_Shoppingbag"></li>
+                                                    <li class="icon-Icon_Tracking"></li>
+                                                    <li class="icon-Icon_Wallet"></li>
+                                                    <li class="icon-Icon_Area"></li>
+                                                    <li class="icon-Icon_Areaplot"></li>
+                                                    <li class="icon-Icon_Bathtub"></li>
+                                                    <li class="icon-Icon_Carrom"></li>
+                                                    <li class="icon-Icon_Cupboard"></li>
+                                                    <li class="icon-Icon_Dinningtable"></li>
+                                                    <li class="icon-Icon_Doublebed"></li>
+                                                    <li class="icon-Icon_Fan"></li>
+                                                    <li class="icon-Icon_Fence"></li>
+                                                    <li class="icon-Icon_Fireextinguisher"></li>
+                                                    <li class="icon-Icon_Game"></li>
+                                                    <li class="icon-Icon_Gym"></li>
+                                                    <li class="icon-Icon_Intercom"></li>
+                                                    <li class="icon-Icon_Lift"></li>
+                                                    <li class="icon-Icon_Modularkitchen"></li>
+                                                    <li class="icon-Icon_Park"></li>
+                                                    <li class="icon-Icon_Refrigerator"></li>
+                                                    <li class="icon-Icon_Singlebed"></li>
+                                                    <li class="icon-Icon_Sofa"></li>
+                                                    <li class="icon-Icon_Stove"></li>
+                                                    <li class="icon-Icon_Swimmingpool"></li>
+                                                    <li class="icon-Icon_Television"></li>
+                                                    <li class="icon-Icon_Toilet"></li>
+                                                    <li class="icon-Icon_Ambulance"></li>
+                                                    <li class="icon-Icon_Ayurvedic"></li>
+                                                    <li class="icon-Icon_Bandage"></li>
+                                                    <li class="icon-Icon_Blood"></li>
+                                                    <li class="icon-Icon_Dental"></li>
+                                                    <li class="icon-Icon_Eye"></li>
+                                                    <li class="icon-Icon_Female"></li>
+                                                    <li class="icon-Icon_Lifeline"></li>
+                                                    <li class="icon-Icon_Male"></li>
+                                                    <li class="icon-Icon_Medical"></li>
+                                                    <li class="icon-Icon_Medicalbox"></li>
+                                                    <li class="icon-Icon_Medicine"></li>
+                                                    <li class="icon-Icon_Ortho"></li>
+                                                    <li class="icon-Icon_Patientbed"></li>
+                                                    <li class="icon-Icon_Stethoscope"></li>
+                                                    <li class="icon-Icon_Syringe"></li>
+                                                    <li class="icon-Icon_Wheelchair"></li>
+                                                    <li class="icon-Icon_Carparking"></li>
+                                                    <li class="icon-Icon_Clean"></li>
+                                                    <li class="icon-Icon_Cofeemaker"></li>
+                                                    <li class="icon-Icon_Curtains"></li>
+                                                    <li class="icon-Icon_Drinks"></li>
+                                                    <li class="icon-Icon_Food"></li>
+                                                    <li class="icon-Icon_Geyser"></li>
+                                                    <li class="icon-Icon_Hairdryer"></li>
+                                                    <li class="icon-Icon_Holiday"></li>
+                                                    <li class="icon-Icon_Ironbox"></li>
+                                                    <li class="icon-Icon_Nosmoking"></li>
+                                                    <li class="icon-Icon_Roomservice"></li>
+                                                    <li class="icon-Icon_Shower"></li>
+                                                    <li class="icon-Icon_Toiletries"></li>
+                                                    <li class="icon-Icon_Travelbag"></li>
+                                                    <li class="icon-Icon_Washingmachine"></li>
+                                                    <li class="icon-Icon_Account"></li>
+                                                    <li class="icon-Icon_Attachment"></li>
+                                                    <li class="icon-Icon_Bookmark"></li>
+                                                    <li class="icon-Icon_Calender"></li>
+                                                    <li class="icon-Icon_Camera"></li>
+                                                    <li class="icon-Icon_Card"></li>
+                                                    <li class="icon-Icon_Cart"></li>
+                                                    <li class="icon-Icon_Caution"></li>
+                                                    <li class="icon-Icon_Clock"></li>
+                                                    <li class="icon-Icon_Coffeecup"></li>
+                                                    <li class="icon-Icon_Dollar"></li>
+                                                    <li class="icon-Icon_Downarrow"></li>
+                                                    <li class="icon-Icon_Euro"></li>
+                                                    <li class="icon-Icon_Facebook"></li>
+                                                    <li class="icon-Icon_Favourite"></li>
+                                                    <li class="icon-Icon_Flag"></li>
+                                                    <li class="icon-Icon_Flight"></li>
+                                                    <li class="icon-Icon_Folder"></li>
+                                                    <li class="icon-Icon_Gallery"></li>
+                                                    <li class="icon-Icon_Home"></li>
+                                                    <li class="icon-Icon_Info"></li>
+                                                    <li class="icon-Icon_Leftarrow"></li>
+                                                    <li class="icon-Icon_Linkedin"></li>
+                                                    <li class="icon-Icon_Location"></li>
+                                                    <li class="icon-Icon_Mail"></li>
+                                                    <li class="icon-Icon_Map"></li>
+                                                    <li class="icon-Icon_Mention"></li>
+                                                    <li class="icon-Icon_Mic"></li>
+                                                    <li class="icon-Icon_Mobile"></li>
+                                                    <li class="icon-Icon_Notification"></li>
+                                                    <li class="icon-Icon_Phone"></li>
+                                                    <li class="icon-Icon_Pound"></li>
+                                                    <li class="icon-Icon_Printer"></li>
+                                                    <li class="icon-Icon_Profile"></li>
+                                                    <li class="icon-Icon_Rightarrow"></li>
+                                                    <li class="icon-Icon_Search"></li>
+                                                    <li class="icon-Icon_Star"></li>
+                                                    <li class="icon-Icon_Tag"></li>
+                                                    <li class="icon-Icon_Ticket"></li>
+                                                    <li class="icon-Icon_Twitter"></li>
+                                                    <li class="icon-Icon_Uparrow"></li>
+                                                    <li class="icon-Icon_Upload"></li>
+                                                    <li class="icon-Icon_Complete"></li>
+                                                    <li class="icon-Icon_Agricultureloan"></li>
+                                                    <li class="icon-Icon_ATMswipe"></li>
+                                                    <li class="icon-Icon_Bank"></li>
+                                                    <li class="icon-Icon_Banklocker"></li>
+                                                    <li class="icon-Icon_Bond"></li>
+                                                    <li class="icon-Icon_Customerprofile"></li>
+                                                    <li class="icon-Icon_Fastag"></li>
+                                                    <li class="icon-Icon_Goldloan"></li>
+                                                    <li class="icon-Icon_Insurance"></li>
+                                                    <li class="icon-Icon_Investment"></li>
+                                                    <li class="icon-Icon_Loan"></li>
+                                                    <li class="icon-Icon_Netbanking"></li>
+                                                    <li class="icon-Icon_Premiumservice"></li>
+                                                    <li class="icon-Icon_Reward"></li>
+                                                    <li class="icon-Icon_Secure"></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </crm-canvas-icon-picker>
+                                <div class="zc-seperator-dropdown" style="display: none;">
+                                    <div></div>
+                                    <div>-</div>
+                                    <div>+</div>
+                                    <div>|</div>
+                                    <div>/</div>
+                                    <div>//</div>
+                                    <div>||</div>
+                                    <div>=</div>
+                                    <div>,</div>
+                                    <div>.</div>
+                                    <div>&amp;</div>
+                                </div>
+                                <style class="zc-core-style"></style>
+                                <div class="ui-resizable-handle ui-resizable-s zcanvas-editor-resize"
+                                    style="z-index: 90; width: inherit; bottom: -5px; left: -5px;"></div>
+                                <div class="ds-selector"
+                                    style="position: absolute; background: rgba(0, 0, 255, 0.1); border: 1px solid rgba(0, 0, 255, 0.45); display: none; pointer-events: none;">
+                                </div>
+                                <div class="svgIcons ico-plus-circle-blue zc-add-canvas" lt-prop-title="Clone"></div>
+                            </div>
+                        </div>
+                        <div class="canvasicon zctogglemenuicon" click="canvas-builder => toggleleftmenu()"> <span
+                                class="zcleftarrowicon zcrotateicon"></span> </div>
+                        <div class="canvas-builder-data-area-container" style="display: none;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="canvasdetails" data-title="Preview">
+                <div id="previewcanvas">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
