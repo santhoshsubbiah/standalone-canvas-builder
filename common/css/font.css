@@ -1,0 +1,205 @@
+
+:root{
+    --crm-font-regular: LatoRegular, sans-serif;
+    --crm-font-regularlight: LatoRegularlight, sans-serif;
+    --crm-font-bold: LatoBold, sans-serif;
+    --crm-font-bolditalic: LatoBoldItalic, sans-serif;
+    --crm-font-semibold: LatoSemibold, sans-serif;
+    --crm-font-semibolditalic: LatoSemiboldItalic, sans-serif;
+    --crm-font-black: LatoBlack, sans-serif;
+    --crm-font-blackitalic: LatoBlackItalic, sans-serif;
+    --crm-font-medium: LatoMedium, sans-serif;
+    --crm-font-mediumitalic: LatoMediumItalic, sans-serif;
+    --crm-font-light: LatoLight, sans-serif;
+    --crm-font-lightitalic: LatoLightItalic, sans-serif;
+    --crm-font-italic: LatoItalic, sans-serif;
+    --crm-font-thin: LatoThin, sans-serif;
+    --crm-font-thinitalic: LatoThinItalic, sans-serif;
+    --crm-font-heavy: LatoHeavy, sans-serif;
+    --crm-font-heavyitalic: LatoHeavyItalic, sans-serif;
+    }
+    @font-face {
+    font-family:"LatoThin";
+    font-weight:200;
+    font-style:normal;
+    src:url("//static.zohocdn.com/webfonts/lato2thin/font.eot");
+    src:url("//static.zohocdn.com/webfonts/lato2thin/font.eot?#iefix") format("eot"),
+    url("//static.zohocdn.com/webfonts/lato2thin/font.woff2") format("woff2"),
+    url("//static.zohocdn.com/webfonts/lato2thin/font.woff") format("woff"),
+    url("//static.zohocdn.com/webfonts/lato2thin/font.ttf") format("truetype"),
+    url("//static.zohocdn.com/webfonts/lato2thin/font.svg#Lato2-Thin") format("svg");
+    }
+    @font-face {
+    font-family:"LatoThinItalic";
+    font-weight:200;
+    font-style:italic;
+    src:url("//static.zohocdn.com/webfonts/lato2thinitalic/font.eot");
+    src:url("//static.zohocdn.com/webfonts/lato2thinitalic/font.eot?#iefix") format("eot"),
+    url("//static.zohocdn.com/webfonts/lato2thinitalic/font.woff2") format("woff2"),
+    url("//static.zohocdn.com/webfonts/lato2thinitalic/font.woff") format("woff"),
+    url("//static.zohocdn.com/webfonts/lato2thinitalic/font.ttf") format("truetype"),
+    url("//static.zohocdn.com/webfonts/lato2thinitalic/font.svg#Lato2-ThinItalic") format("svg");
+    }
+    @font-face {    
+    font-family:"LatoLight";
+    font-weight:300;
+    font-style:normal;
+    src:url("//static.zohocdn.com/webfonts/lato2light/font.eot");
+    src:url("//static.zohocdn.com/webfonts/lato2light/font.eot?#iefix") format("eot"),
+    url("//static.zohocdn.com/webfonts/lato2light/font.woff2") format("woff2"),
+    url("//static.zohocdn.com/webfonts/lato2light/font.woff") format("woff"),
+    url("//static.zohocdn.com/webfonts/lato2light/font.ttf") format("truetype"),
+    url("//static.zohocdn.com/webfonts/lato2light/font.svg#Lato2-Light") format("svg");
+    }
+    @font-face {
+    font-family:"LatoLightItalic";
+    font-weight:300;
+    font-style:italic;
+    src:url("//static.zohocdn.com/webfonts/lato2lightitalic/font.eot");
+    src:url("//static.zohocdn.com/webfonts/lato2lightitalic/font.eot?#iefix") format("eot"),
+    url("//static.zohocdn.com/webfonts/lato2lightitalic/font.woff2") format("woff2"),
+    url("//static.zohocdn.com/webfonts/lato2lightitalic/font.woff") format("woff"),
+    url("//static.zohocdn.com/webfonts/lato2lightitalic/font.ttf") format("truetype"),
+    url("//static.zohocdn.com/webfonts/lato2lightitalic/font.svg#Lato2-LightItalic") format("svg");
+    }
+    @font-face {
+    font-family:"LatoRegular";
+    font-weight:400;
+    font-style:normal;
+    src:url("//static.zohocdn.com/webfonts/latoregular/font.eot");
+    src:url("//static.zohocdn.com/webfonts/latoregular/font.eot?#iefix") format("eot"),
+    url("//static.zohocdn.com/webfonts/latoregular/font.woff2") format("woff2"),
+    url("//static.zohocdn.com/webfonts/latoregular/font.woff") format("woff"),
+    url("//static.zohocdn.com/webfonts/latoregular/font.ttf") format("truetype"),
+    url("//static.zohocdn.com/webfonts/latoregular/font.svg#Lato-Regular") format("svg");
+    }
+    @font-face {
+    font-family:"LatoItalic";
+    font-weight:400;
+    font-style:italic;
+    src:url("//static.zohocdn.com/webfonts/lato2italic/font.eot");
+    src:url("//static.zohocdn.com/webfonts/lato2italic/font.eot?#iefix") format("eot"),
+    url("//static.zohocdn.com/webfonts/lato2italic/font.woff2") format("woff2"),
+    url("//static.zohocdn.com/webfonts/lato2italic/font.woff") format("woff"),
+    url("//static.zohocdn.com/webfonts/lato2italic/font.ttf") format("truetype"),
+    url("//static.zohocdn.com/webfonts/lato2italic/font.svg#Lato2-Italic") format("svg");
+    }
+    @font-face {
+    font-family:"LatoMedium";
+    font-weight:500;
+    font-style:normal;
+    src:url("//static.zohocdn.com/webfonts/lato2medium/font.eot");
+    src:url("//static.zohocdn.com/webfonts/lato2medium/font.eot?#iefix") format("eot"),
+    url("//static.zohocdn.com/webfonts/lato2medium/font.woff2") format("woff2"),
+    url("//static.zohocdn.com/webfonts/lato2medium/font.woff") format("woff"),
+    url("//static.zohocdn.com/webfonts/lato2medium/font.ttf") format("truetype"),
+    url("//static.zohocdn.com/webfonts/lato2medium/font.svg#Lato2-Medium") format("svg");
+    }
+    @font-face {
+    font-family:"LatoMediumItalic";
+    font-weight:500;
+    font-style:italic;
+    src:url("//static.zohocdn.com/webfonts/lato2mediumitalic/font.eot");
+    src:url("//static.zohocdn.com/webfonts/lato2mediumitalic/font.eot?#iefix") format("eot"),
+    url("//static.zohocdn.com/webfonts/lato2mediumitalic/font.woff2") format("woff2"),
+    url("//static.zohocdn.com/webfonts/lato2mediumitalic/font.woff") format("woff"),
+    url("//static.zohocdn.com/webfonts/lato2mediumitalic/font.ttf") format("truetype"),
+    url("//static.zohocdn.com/webfonts/lato2mediumitalic/font.svg#Lato2-MediumItalic") format("svg");
+    }
+    @font-face {
+    font-family:"LatoSemibold";
+    font-weight:600;
+    font-style:normal;
+    src:url("//static.zohocdn.com/webfonts/lato2semibold/font.eot");
+    src:url("//static.zohocdn.com/webfonts/lato2semibold/font.eot?#iefix") format("eot"),
+    url("//static.zohocdn.com/webfonts/lato2semibold/font.woff2") format("woff2"),
+    url("//static.zohocdn.com/webfonts/lato2semibold/font.woff") format("woff"),
+    url("//static.zohocdn.com/webfonts/lato2semibold/font.ttf") format("truetype"),
+    url("//static.zohocdn.com/webfonts/lato2semibold/font.svg#Lato2-Semibold") format("svg");
+    }
+    @font-face {
+    font-family:"LatoSemiboldItalic";
+    font-weight:600;
+    font-style:italic;
+    src:url("//static.zohocdn.com/webfonts/lato2semibolditalic/font.eot");
+    src:url("//static.zohocdn.com/webfonts/lato2semibolditalic/font.eot?#iefix") format("eot"),
+    url("//static.zohocdn.com/webfonts/lato2semibolditalic/font.woff2") format("woff2"),
+    url("//static.zohocdn.com/webfonts/lato2semibolditalic/font.woff") format("woff"),
+    url("//static.zohocdn.com/webfonts/lato2semibolditalic/font.ttf") format("truetype"),
+    url("//static.zohocdn.com/webfonts/lato2semibolditalic/font.svg#Lato2-SemiboldItalic") format("svg");
+    }
+    @font-face {
+    font-family:"LatoBold";
+    font-weight:700;
+    font-style:normal;
+    src:url("//static.zohocdn.com/webfonts/latobold/font.eot");
+    src:url("//static.zohocdn.com/webfonts/latobold/font.eot?#iefix") format("eot"),
+    url("//static.zohocdn.com/webfonts/latobold/font.woff2") format("woff2"),
+    url("//static.zohocdn.com/webfonts/latobold/font.woff") format("woff"),
+    url("//static.zohocdn.com/webfonts/latobold/font.ttf") format("truetype"),
+    url("//static.zohocdn.com/webfonts/latobold/font.svg#Lato2-Bold") format("svg");
+    }
+    @font-face {
+    font-family:"LatoBoldItalic";
+    font-weight:700;
+    font-style:italic;
+    src:url("//static.zohocdn.com/webfonts/lato2bolditalic/font.eot");
+    src:url("//static.zohocdn.com/webfonts/lato2bolditalic/font.eot?#iefix") format("eot"),
+    url("//static.zohocdn.com/webfonts/lato2bolditalic/font.woff2") format("woff2"),
+    url("//static.zohocdn.com/webfonts/lato2bolditalic/font.woff") format("woff"),
+    url("//static.zohocdn.com/webfonts/lato2bolditalic/font.ttf") format("truetype"),
+    url("//static.zohocdn.com/webfonts/lato2bolditalic/font.svg#Lato2-BoldItalic") format("svg");
+    }
+    @font-face {
+    font-family:"LatoBlack";
+    font-weight:800;
+    font-style:normal;
+    src:url("//static.zohocdn.com/webfonts/lato2black/font.eot");
+    src:url("//static.zohocdn.com/webfonts/lato2black/font.eot?#iefix") format("eot"),
+    url("//static.zohocdn.com/webfonts/lato2black/font.woff2") format("woff2"),
+    url("//static.zohocdn.com/webfonts/lato2black/font.woff") format("woff"),
+    url("//static.zohocdn.com/webfonts/lato2black/font.ttf") format("truetype"),
+    url("//static.zohocdn.com/webfonts/lato2black/font.svg#Lato2-Black") format("svg");
+    }
+    @font-face {
+    font-family:"LatoBlackItalic";
+    font-weight:800;
+    font-style:italic;
+    src:url("//static.zohocdn.com/webfonts/lato2blackitalic/font.eot");
+    src:url("//static.zohocdn.com/webfonts/lato2blackitalic/font.eot?#iefix") format("eot"),
+    url("//static.zohocdn.com/webfonts/lato2blackitalic/font.woff2") format("woff2"),
+    url("//static.zohocdn.com/webfonts/lato2blackitalic/font.woff") format("woff"),
+    url("//static.zohocdn.com/webfonts/lato2blackitalic/font.ttf") format("truetype"),
+    url("//static.zohocdn.com/webfonts/lato2blackitalic/font.svg#Lato2-BlackItalic") format("svg");
+    }
+    @font-face {
+    font-family:"LatoHeavy";
+    font-weight:800;
+    font-style:normal;
+    src:url("//static.zohocdn.com/webfonts/lato2heavy/font.eot");
+    src:url("//static.zohocdn.com/webfonts/lato2heavy/font.eot?#iefix") format("eot"),
+    url("//static.zohocdn.com/webfonts/lato2heavy/font.woff2") format("woff2"),
+    url("//static.zohocdn.com/webfonts/lato2heavy/font.woff") format("woff"),
+    url("//static.zohocdn.com/webfonts/lato2heavy/font.ttf") format("truetype"),
+    url("//static.zohocdn.com/webfonts/lato2heavy/font.svg#Lato2-Heavy") format("svg");
+    }
+    @font-face {
+    font-family:"LatoHeavyItalic";
+    font-weight:800;
+    font-style:italic;
+    src:url("//static.zohocdn.com/webfonts/lato2heavyitalic/font.eot");
+    src:url("//static.zohocdn.com/webfonts/lato2heavyitalic/font.eot?#iefix") format("eot"),
+    url("//static.zohocdn.com/webfonts/lato2heavyitalic/font.woff2") format("woff2"),
+    url("//static.zohocdn.com/webfonts/lato2heavyitalic/font.woff") format("woff"),
+    url("//static.zohocdn.com/webfonts/lato2heavyitalic/font.ttf") format("truetype"),
+    url("//static.zohocdn.com/webfonts/lato2heavyitalic/font.svg#Lato2-HeavyItalic") format("svg");
+    }
+    .crm-font-regular,.ProximaNovaRegular,.ProximaNovaLight,.ProximaNovaThin {
+    font-family: var(--crm-font-regular);
+    }
+    .ProximaNovaSemibold,.crm-font-bold{
+    font-family: var(--crm-font-bold);
+    }
+    .crm-font-xbold,.ProximaNovaBold{
+    font-family: var(--crm-font-black);
+    }
