@@ -1,0 +1,37 @@
+{
+    "fields": {
+        "Student Basic Info": {
+            "data": [
+                {
+                    "label": "name",
+                    "value": "<span>Arun Kumar</span>",
+                    "type": "field"
+                },
+                {
+                    "label": "age",
+                    "value": "<span>18</span>",
+                    "type": "field"
+                },
+                {
+                    "label": "address",
+                    "value": "<span>18, xyz street, chennai</span>",
+                    "type": "field"
+                }
+            ]
+        },
+        "Student Academic Info": {
+            "data": [
+                {
+                    "label": "total mark",
+                    "value": "<div>480</div>",
+                    "type": "field"
+                },
+                {
+                    "label": "result",
+                    "value": "<div>pass</div>",
+                    "type": "field"
+                }
+            ]
+        }
+    }
+}

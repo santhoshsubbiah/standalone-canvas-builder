@@ -1,0 +1,13 @@
+{
+    "your-heading": {
+        "your-sub-heading": {
+            "data": [
+                {
+                    "label": "your-label",
+                    "value": "your-ui-element-as-html-string",
+                    "type": "field | action | relatedlist | button | link | system | zia"
+                }
+            ]
+        }
+    }
+}

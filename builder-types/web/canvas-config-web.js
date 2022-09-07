@@ -878,7 +878,8 @@ var menuOptions = {
 }
 
 var menu_container = $("#zcanvas_menu");
-menuOptions.groups = zcdata;
+// menuOptions.groups = zcdata;
+menuOptions.groups = demojson;
 
 menu_container.zcanvasMenu(menuOptions); // Side menu
 
